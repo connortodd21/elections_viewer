@@ -6,7 +6,6 @@ from common.data_helpers import getCorrectOfficeCodes
 from common.input_helpers import getStateInput
 from common.os_helpers import getGitRoot
 
-MI_RAW_DATA_FILE_NAME = "STATE_GENERAL_MI_CENR_BY_COUNTY"
 GIT_ROOT = getGitRoot()
 
 def getDataForYear(year: str, state: str) -> pd.DataFrame:
