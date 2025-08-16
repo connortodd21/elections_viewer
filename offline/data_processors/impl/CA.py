@@ -64,7 +64,7 @@ class CAStateWideElectionDataProcessor(DataProcessor):
         isFirstPass = True
         skipRows = 0
         for year in ELECTION_YEARS_AFTER_TRUMP:
-            yearDf = readCsv(f"{self.GIT_ROOT}/{RAW_DATA_FILE_PATH.format(self.getState())}/{year}.csv", names=columns, skiprows=skipRows)
+            yearDf = readCsv(f"{self.GIT_ROOT}/{RAW_DATA_FILE_PATH.format(self.getState())}/{year}.csv", names=columns, skiprows=skipRows, thousands=",")
             # this is necessary as column names changed in 2020
             # in 2016 and 2018 words were separated with an "_". For 2020 onwards they use a space
             if isFirstPass:
