@@ -72,6 +72,8 @@ class MIStateWideElectionDataProcessor(DataProcessor):
             data[self.COUNTY_NAME].replace(st_joseph_old, st_joseph_new, inplace=True)
             return data
 
+        # Some years have the parties in all caps, some years have only the first letter capitalized
+        # This method corrects all the names to be the same (only first letter capitzliaed)
         def unifyPartyNames(data: pd.DataFrame) -> pd.DataFrame:
             data[self.PARTY_DESCRIPTION].replace("DEMOCRATIC", self.DEMOCRATIC, inplace=True)
             data[self.PARTY_DESCRIPTION].replace("REPUBLICAN", self.REPUBLICAN, inplace=True)
