@@ -85,3 +85,26 @@ class DataProcessor(ABC):
         """
         if self.intermediate_data is not None:
             writeDataFrameToCSV(f"{self.GIT_ROOT}/{PROCESSED_DATA_FILE_PATH.format(self.getState())}/intermediate_results.csv", self.intermediate_data)
+
+    def createCountyLevelResultsDataFrame(
+        self, 
+        year: str, 
+        election_type: str,
+        county: str,
+        democrat_vote_total: int,
+        republican_vote_total: int,
+        democrat_candidate_name: str,
+        republican_candidate_name: str
+    ) -> pd.DataFrame:
+        """
+        Create the county level dataframe during generateCountyByCountyResults
+        """
+        return pd.DataFrame({
+            self.YEAR: [year],
+            self.ELECTION: [election_type],
+            self.COUNTY: [county],
+            self.RAW_VOTES_D: [democrat_vote_total],
+            self.RAW_VOTES_R: [republican_vote_total],
+            self.D_CANDIDATE: [democrat_candidate_name],
+            self.R_CANDIDATE: [republican_candidate_name]
+        })

@@ -112,15 +112,15 @@ class MIStateWideElectionDataProcessor(DataProcessor):
                     year = self.getYear(election)
                     r_results = election[election[self.PARTY_DESCRIPTION].isin(self.REPUBLICAN)]
                     d_results = election[election[self.PARTY_DESCRIPTION].isin(self.DEMOCRAT)]
-                    county_election_results = pd.DataFrame({
-                        self.YEAR: [year],
-                        self.ELECTION: [self.getElectionType(election, year)],
-                        self.COUNTY: [county],
-                        self.RAW_VOTES_D: [d_results[self.CANDIDATE_VOTES].iloc[0]],
-                        self.RAW_VOTES_R: [r_results[self.CANDIDATE_VOTES].iloc[0]],
-                        self.D_CANDIDATE: [d_results[self.CANDIDATE_FULL_NAME].iloc[0]],
-                        self.R_CANDIDATE: [r_results[self.CANDIDATE_FULL_NAME].iloc[0]]
-                    })
+                    county_election_results = self.createCountyLevelResultsDataFrame(
+                        year, 
+                        self.getElectionType(election, year),
+                        county,
+                        d_results[self.CANDIDATE_VOTES].iloc[0],
+                        r_results[self.CANDIDATE_VOTES].iloc[0],
+                        d_results[self.CANDIDATE_FULL_NAME].iloc[0],
+                        r_results[self.CANDIDATE_FULL_NAME].iloc[0]
+                    )
                     county_by_county_results = pd.concat([county_by_county_results, county_election_results])
 
         return county_by_county_results
