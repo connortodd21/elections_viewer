@@ -6,6 +6,11 @@ RESULTS_FILE_PATH = "database/{}/results"
 # years since trump entered politics
 ELECTION_YEARS_AFTER_TRUMP = [2016, 2018, 2020, 2022, 2024]
 
+# common strings
+PRESIDENT = "president"
+SENATE = "senate"
+GOVERNOR = "governor"
+
 # States and their two letter abbreviation
 AL = "AL"
 AK = "AK"

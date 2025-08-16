@@ -1,7 +1,7 @@
 import pandas as pd
 
 from common.defs import *
-from common.csv_helpers import readData, writeDataFrameToCSV
+from common.csv_helpers import readTsvAsCsv, writeDataFrameToCSV
 from data_processors.data_processor import DataProcessor
 
 class MIStateWideElectionDataProcessor(DataProcessor):
@@ -9,7 +9,7 @@ class MIStateWideElectionDataProcessor(DataProcessor):
     # raw data file name
     MI_RAW_DATA_FILE_NAME = "STATE_GENERAL_MI_CENR_BY_COUNTY"
 
-    # column names and references to raw data from michigan 
+    # raw data column names
     COUNTY_NAME = "CountyName"
     ELECTION_DATE = "ElectionDate"
     OFFICE_CODE = "OfficeCode(text)"
@@ -21,57 +21,27 @@ class MIStateWideElectionDataProcessor(DataProcessor):
     DEMOCRAT = ["Democratic", "DEMOCRATIC"]
     # office code mappings in raw datasets from 2016-2022
     OFFICE_CODES_OLD = {
-        "1": "president",
-        "2": "governor",
-        "5": "senate"
+        "1": PRESIDENT,
+        "2": GOVERNOR,
+        "5": SENATE
     }
     # office code mappings in raw datasets in 2024
     OFFICE_CODES_NEW = {
-        "1": "president",
-        "2": "governor",
-        "7": "senate"
+        "1": PRESIDENT,
+        "2": GOVERNOR,
+        "7": SENATE
     }
-
-    # columns for result df
-    YEAR = "year"
-    ELECTION = "election"
-    COUNTY = "county"
-    RAW_VOTES_D = "raw_votes_D"
-    RAW_VOTES_R = "raw_votes_R"
-    D_CANDIDATE = "d_candidate"
-    R_CANDIDATE = "r_candidate"
     
-
     def getState(self) -> str:
         return MI
 
     def getRawData(self) -> pd.DataFrame:
         data = pd.DataFrame()
         for year in ELECTION_YEARS_AFTER_TRUMP:
-            yearDf = readData(f"{self.GIT_ROOT}/{RAW_DATA_FILE_PATH.format(self.getState())}/{year}{self.MI_RAW_DATA_FILE_NAME}.txt").iloc[:, :-1][:-1]
+            yearDf = readTsvAsCsv(f"{self.GIT_ROOT}/{RAW_DATA_FILE_PATH.format(self.getState())}/{year}{self.MI_RAW_DATA_FILE_NAME}.txt").iloc[:, :-1][:-1]
             data = pd.concat([data, yearDf])
         return data
-
-    def filterData(self, data: pd.DataFrame) -> pd.DataFrame:
-        # only use statewide elections
-        def filterForStatewideElectionType(data: pd.DataFrame) -> pd.DataFrame:
-            # the pre-2024 and 2024 datasets use different election type ids
-            election_dates_pre_2024 = set(['2016-11-08', '2018-11-06', '2020-11-03', '2022-11-08']) 
-            election_date_2024 = '2024-11-05'
-            old_data = data[(data['OfficeCode(text)'].isin(self.OFFICE_CODES_OLD)) & (data[self.ELECTION_DATE].isin(election_dates_pre_2024))]
-            new_data = data[(data['OfficeCode(text)'].isin(self.OFFICE_CODES_NEW)) & (data[self.ELECTION_DATE] == election_date_2024)]
-            return pd.concat([old_data, new_data])
-
-        # filter out write in votes
-        def filterOutWriteIns(data: pd.DataFrame) -> pd.DataFrame:
-            return data[data['WriteIn(W)/Uncommitted(Z)'].isnull()]
-
-        # only using democrat and republican candidates
-        def filterForOnlyDemocratOrRepublicanCandidates(data: pd.DataFrame) -> pd.DataFrame:
-            return data[data['PartyDescription'].isin(self.PARTY_NAMES)]
-        
-        return data.pipe(filterOutWriteIns).pipe(filterForOnlyDemocratOrRepublicanCandidates).pipe(filterForStatewideElectionType)
-
+    
     def cleanData(self, data: pd.DataFrame) -> pd.DataFrame:
         # combine first/last names
         def addFirstNameColumn(data: pd.DataFrame) -> pd.DataFrame:
@@ -103,6 +73,27 @@ class MIStateWideElectionDataProcessor(DataProcessor):
 
         return data.pipe(addFirstNameColumn).pipe(fixCountyNameData)
 
+    def filterData(self, data: pd.DataFrame) -> pd.DataFrame:
+        # only use statewide elections
+        def filterForStatewideElectionType(data: pd.DataFrame) -> pd.DataFrame:
+            # the pre-2024 and 2024 datasets use different election type ids
+            election_dates_pre_2024 = set(['2016-11-08', '2018-11-06', '2020-11-03', '2022-11-08']) 
+            election_date_2024 = '2024-11-05'
+            old_data = data[(data['OfficeCode(text)'].isin(self.OFFICE_CODES_OLD)) & (data[self.ELECTION_DATE].isin(election_dates_pre_2024))]
+            new_data = data[(data['OfficeCode(text)'].isin(self.OFFICE_CODES_NEW)) & (data[self.ELECTION_DATE] == election_date_2024)]
+            return pd.concat([old_data, new_data])
+
+        # filter out write in votes
+        def filterOutWriteIns(data: pd.DataFrame) -> pd.DataFrame:
+            return data[data['WriteIn(W)/Uncommitted(Z)'].isnull()]
+
+        # only using democrat and republican candidates
+        def filterForOnlyDemocratOrRepublicanCandidates(data: pd.DataFrame) -> pd.DataFrame:
+            return data[data['PartyDescription'].isin(self.PARTY_NAMES)]
+        
+        return data.pipe(filterOutWriteIns).pipe(filterForOnlyDemocratOrRepublicanCandidates).pipe(filterForStatewideElectionType)
+
+
     def dropData(self, data: pd.DataFrame) -> pd.DataFrame:
         return data.drop(['DistrictCode(Text)', 'StatusCode', 'CountyCode', 'PartyOrder', 'CandidateFirstName', 'CandidateLastName', 'CandidateMiddleName', 'CandidateID', 'CandidateFormerName', 'WriteIn(W)/Uncommitted(Z)', 'Recount(*)'], axis=1)
 
@@ -133,13 +124,6 @@ class MIStateWideElectionDataProcessor(DataProcessor):
                     county_by_county_results = pd.concat([county_by_county_results, county_election_results])
 
         return county_by_county_results
-
-    def setIntermediateData(self, data: pd.DataFrame) -> None:
-        self.intermediate_data = data
-    
-    def writeIntermediateDataset(self) -> None:
-        if self.intermediate_data is not None:
-            writeDataFrameToCSV(f"{self.GIT_ROOT}/{PROCESSED_DATA_FILE_PATH.format(self.getState())}/all_results.csv", self.intermediate_data)
 
     def writeDataToResults(self, data: pd.DataFrame) -> None:
         writeDataFrameToCSV(f"{self.GIT_ROOT}/{RESULTS_FILE_PATH.format(self.getState())}/statewide_results.csv", data.sort_values([self.YEAR, self.ELECTION]))

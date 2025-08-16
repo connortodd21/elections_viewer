@@ -6,6 +6,9 @@ def writeDataFrameToCSV(path: str, data: pd.DataFrame) -> None:
     data.to_csv(path,  index=False)
 
 # read csv as Df
-def readData(path: str) -> pd.DataFrame:
+def readTsvAsCsv(path: str) -> pd.DataFrame:
     return pd.read_csv(path,  sep='\t', index_col=None, lineterminator="\n")
+
+def readCsv(path: str, names=None, skiprows=0) -> pd.DataFrame:
+    return pd.read_csv(path, index_col=None, names=names, skiprows=skiprows)
     

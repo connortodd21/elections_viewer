@@ -1,0 +1,409 @@
+year,election,county,raw_votes_D,raw_votes_R,d_candidate,r_candidate
+2016,president,Alameda,"514,842","95,922",Hillary Clinton,Donald J. Trump
+2016,president,Alpine,334,217,Hillary Clinton,Donald J. Trump
+2016,president,Amador,"6,004","10,485",Hillary Clinton,Donald J. Trump
+2016,president,Butte,"41,567","45,144",Hillary Clinton,Donald J. Trump
+2016,president,Calaveras,"7,944","13,511",Hillary Clinton,Donald J. Trump
+2016,president,Colusa,"2,661","3,551",Hillary Clinton,Donald J. Trump
+2016,president,Contra Costa,"319,287","115,956",Hillary Clinton,Donald J. Trump
+2016,president,Del Norte,"3,485","5,134",Hillary Clinton,Donald J. Trump
+2016,president,El Dorado,"36,404","49,247",Hillary Clinton,Donald J. Trump
+2016,president,Fresno,"141,341","124,049",Hillary Clinton,Donald J. Trump
+2016,president,Glenn,"3,065","5,788",Hillary Clinton,Donald J. Trump
+2016,president,Humboldt,"33,200","18,373",Hillary Clinton,Donald J. Trump
+2016,president,Imperial,"32,667","12,704",Hillary Clinton,Donald J. Trump
+2016,president,Inyo,"3,155","4,248",Hillary Clinton,Donald J. Trump
+2016,president,Kern,"98,689","129,584",Hillary Clinton,Donald J. Trump
+2016,president,Kings,"13,617","18,093",Hillary Clinton,Donald J. Trump
+2016,president,Lake,"11,496","10,599",Hillary Clinton,Donald J. Trump
+2016,president,Lassen,"2,224","7,574",Hillary Clinton,Donald J. Trump
+2016,president,Los Angeles,"2,464,364","769,743",Hillary Clinton,Donald J. Trump
+2016,president,Madera,"17,029","23,357",Hillary Clinton,Donald J. Trump
+2016,president,Marin,"108,707","21,771",Hillary Clinton,Donald J. Trump
+2016,president,Mariposa,"3,122","5,185",Hillary Clinton,Donald J. Trump
+2016,president,Mendocino,"22,079","10,888",Hillary Clinton,Donald J. Trump
+2016,president,Merced,"37,317","28,725",Hillary Clinton,Donald J. Trump
+2016,president,Modoc,877,"2,696",Hillary Clinton,Donald J. Trump
+2016,president,Mono,"2,773","2,111",Hillary Clinton,Donald J. Trump
+2016,president,Monterey,"89,088","34,895",Hillary Clinton,Donald J. Trump
+2016,president,Napa,"39,199","17,411",Hillary Clinton,Donald J. Trump
+2016,president,Nevada,"26,053","23,365",Hillary Clinton,Donald J. Trump
+2016,president,Orange,"609,961","507,148",Hillary Clinton,Donald J. Trump
+2016,president,Placer,"73,509","95,138",Hillary Clinton,Donald J. Trump
+2016,president,Plumas,"3,459","5,420",Hillary Clinton,Donald J. Trump
+2016,president,Riverside,"373,695","333,243",Hillary Clinton,Donald J. Trump
+2016,president,Sacramento,"326,023","189,789",Hillary Clinton,Donald J. Trump
+2016,president,San Benito,"12,521","7,841",Hillary Clinton,Donald J. Trump
+2016,president,San Bernardino,"340,833","271,240",Hillary Clinton,Donald J. Trump
+2016,president,San Diego,"735,476","477,766",Hillary Clinton,Donald J. Trump
+2016,president,San Francisco,"345,084","37,688",Hillary Clinton,Donald J. Trump
+2016,president,San Joaquin,"121,124","88,936",Hillary Clinton,Donald J. Trump
+2016,president,San Luis Obispo,"67,107","56,164",Hillary Clinton,Donald J. Trump
+2016,president,San Mateo,"237,882","57,929",Hillary Clinton,Donald J. Trump
+2016,president,Santa Barbara,"107,142","56,365",Hillary Clinton,Donald J. Trump
+2016,president,Santa Clara,"511,684","144,826",Hillary Clinton,Donald J. Trump
+2016,president,Santa Cruz,"95,249","22,438",Hillary Clinton,Donald J. Trump
+2016,president,Shasta,"22,301","51,778",Hillary Clinton,Donald J. Trump
+2016,president,Sierra,601,"1,048",Hillary Clinton,Donald J. Trump
+2016,president,Siskiyou,"7,234","11,341",Hillary Clinton,Donald J. Trump
+2016,president,Solano,"102,360","51,920",Hillary Clinton,Donald J. Trump
+2016,president,Sonoma,"160,435","51,408",Hillary Clinton,Donald J. Trump
+2016,president,Stanislaus,"81,647","78,494",Hillary Clinton,Donald J. Trump
+2016,president,Sutter,"13,076","18,176",Hillary Clinton,Donald J. Trump
+2016,president,Tehama,"6,809","15,494",Hillary Clinton,Donald J. Trump
+2016,president,Trinity,"2,214","2,812",Hillary Clinton,Donald J. Trump
+2016,president,Tulare,"47,585","58,299",Hillary Clinton,Donald J. Trump
+2016,president,Tuolumne,"9,123","14,551",Hillary Clinton,Donald J. Trump
+2016,president,Ventura,"194,402","132,323",Hillary Clinton,Donald J. Trump
+2016,president,Yolo,"54,752","20,739",Hillary Clinton,Donald J. Trump
+2016,president,Yuba,"7,910","13,170",Hillary Clinton,Donald J. Trump
+2016,president,State Totals,"8,753,788","4,483,810",Hillary Clinton,Donald J. Trump
+2018,governor,Alameda,"462,558","111,677",Gavin Newsom,John H. Cox
+2018,governor,Alpine,386,229,Gavin Newsom,John H. Cox
+2018,governor,Amador,"6,237","11,356",Gavin Newsom,John H. Cox
+2018,governor,Butte,"41,500","47,226",Gavin Newsom,John H. Cox
+2018,governor,Calaveras,"7,765","13,845",Gavin Newsom,John H. Cox
+2018,governor,Colusa,"1,999","3,764",Gavin Newsom,John H. Cox
+2018,governor,Contra Costa,"283,805","132,345",Gavin Newsom,John H. Cox
+2018,governor,Del Norte,"3,441","4,887",Gavin Newsom,John H. Cox
+2018,governor,El Dorado,"36,297","53,140",Gavin Newsom,John H. Cox
+2018,governor,Fresno,"124,332","128,974",Gavin Newsom,John H. Cox
+2018,governor,Glenn,"2,424","5,908",Gavin Newsom,John H. Cox
+2018,governor,Humboldt,"33,455","18,418",Gavin Newsom,John H. Cox
+2018,governor,Imperial,"20,573","12,785",Gavin Newsom,John H. Cox
+2018,governor,Inyo,"3,244","4,018",Gavin Newsom,John H. Cox
+2018,governor,Kern,"83,507","119,870",Gavin Newsom,John H. Cox
+2018,governor,Kings,"12,275","17,976",Gavin Newsom,John H. Cox
+2018,governor,Lake,"10,869","10,280",Gavin Newsom,John H. Cox
+2018,governor,Lassen,"2,043","6,973",Gavin Newsom,John H. Cox
+2018,governor,Los Angeles,"2,114,699","826,402",Gavin Newsom,John H. Cox
+2018,governor,Madera,"15,037","23,488",Gavin Newsom,John H. Cox
+2018,governor,Marin,"103,671","26,750",Gavin Newsom,John H. Cox
+2018,governor,Mariposa,"3,183","5,043",Gavin Newsom,John H. Cox
+2018,governor,Mendocino,"22,152","11,255",Gavin Newsom,John H. Cox
+2018,governor,Merced,"30,783","28,424",Gavin Newsom,John H. Cox
+2018,governor,Modoc,820,"2,628",Gavin Newsom,John H. Cox
+2018,governor,Mono,"2,706","2,147",Gavin Newsom,John H. Cox
+2018,governor,Monterey,"76,648","39,516",Gavin Newsom,John H. Cox
+2018,governor,Napa,"36,513","19,834",Gavin Newsom,John H. Cox
+2018,governor,Nevada,"27,985","24,882",Gavin Newsom,John H. Cox
+2018,governor,Orange,"543,047","539,951",Gavin Newsom,John H. Cox
+2018,governor,Placer,"72,270","103,157",Gavin Newsom,John H. Cox
+2018,governor,Plumas,"3,433","5,807",Gavin Newsom,John H. Cox
+2018,governor,Riverside,"319,845","322,243",Gavin Newsom,John H. Cox
+2018,governor,Sacramento,"302,696","212,010",Gavin Newsom,John H. Cox
+2018,governor,San Benito,"11,274","8,815",Gavin Newsom,John H. Cox
+2018,governor,San Bernardino,"276,874","260,379",Gavin Newsom,John H. Cox
+2018,governor,San Diego,"658,346","499,532",Gavin Newsom,John H. Cox
+2018,governor,San Francisco,"312,181","49,181",Gavin Newsom,John H. Cox
+2018,governor,San Joaquin,"101,474","92,966",Gavin Newsom,John H. Cox
+2018,governor,San Luis Obispo,"65,117","61,137",Gavin Newsom,John H. Cox
+2018,governor,San Mateo,"213,282","70,242",Gavin Newsom,John H. Cox
+2018,governor,Santa Barbara,"93,841","61,300",Gavin Newsom,John H. Cox
+2018,governor,Santa Clara,"438,758","175,791",Gavin Newsom,John H. Cox
+2018,governor,Santa Cruz,"91,523","27,665",Gavin Newsom,John H. Cox
+2018,governor,Shasta,"20,256","49,825",Gavin Newsom,John H. Cox
+2018,governor,Sierra,599,"1,068",Gavin Newsom,John H. Cox
+2018,governor,Siskiyou,"7,218","10,946",Gavin Newsom,John H. Cox
+2018,governor,Solano,"89,694","56,627",Gavin Newsom,John H. Cox
+2018,governor,Sonoma,"152,040","58,338",Gavin Newsom,John H. Cox
+2018,governor,Stanislaus,"77,220","79,751",Gavin Newsom,John H. Cox
+2018,governor,Sutter,"11,122","18,953",Gavin Newsom,John H. Cox
+2018,governor,Tehama,"5,756","15,137",Gavin Newsom,John H. Cox
+2018,governor,Trinity,"2,250","3,075",Gavin Newsom,John H. Cox
+2018,governor,Tulare,"42,702","57,012",Gavin Newsom,John H. Cox
+2018,governor,Tuolumne,"9,294","14,580",Gavin Newsom,John H. Cox
+2018,governor,Ventura,"171,729","137,393",Gavin Newsom,John H. Cox
+2018,governor,Yolo,"49,759","23,611",Gavin Newsom,John H. Cox
+2018,governor,Yuba,"6,903","12,293",Gavin Newsom,John H. Cox
+2018,governor,State Totals,"7,721,410","4,742,825",Gavin Newsom,John H. Cox
+2020,president,Alameda,"617,659","136,309",Joseph R. Biden,Donald J. Trump
+2020,president,Alpine,476,244,Joseph R. Biden,Donald J. Trump
+2020,president,Amador,"8,153","13,585",Joseph R. Biden,Donald J. Trump
+2020,president,Butte,"50,426","48,730",Joseph R. Biden,Donald J. Trump
+2020,president,Calaveras,"10,046","16,518",Joseph R. Biden,Donald J. Trump
+2020,president,Colusa,"3,239","4,559",Joseph R. Biden,Donald J. Trump
+2020,president,Contra Costa,"416,386","152,877",Joseph R. Biden,Donald J. Trump
+2020,president,Del Norte,"4,677","6,461",Joseph R. Biden,Donald J. Trump
+2020,president,El Dorado,"51,621","61,838",Joseph R. Biden,Donald J. Trump
+2020,president,Fresno,"193,025","164,464",Joseph R. Biden,Donald J. Trump
+2020,president,Glenn,"3,995","7,063",Joseph R. Biden,Donald J. Trump
+2020,president,Humboldt,"44,768","21,770",Joseph R. Biden,Donald J. Trump
+2020,president,Imperial,"34,678","20,847",Joseph R. Biden,Donald J. Trump
+2020,president,Inyo,"4,634","4,620",Joseph R. Biden,Donald J. Trump
+2020,president,Kern,"133,366","164,484",Joseph R. Biden,Donald J. Trump
+2020,president,Kings,"18,699","24,072",Joseph R. Biden,Donald J. Trump
+2020,president,Lake,"14,941","13,123",Joseph R. Biden,Donald J. Trump
+2020,president,Lassen,"2,799","8,970",Joseph R. Biden,Donald J. Trump
+2020,president,Los Angeles,"3,028,885","1,145,530",Joseph R. Biden,Donald J. Trump
+2020,president,Madera,"23,168","29,378",Joseph R. Biden,Donald J. Trump
+2020,president,Marin,"128,288","24,612",Joseph R. Biden,Donald J. Trump
+2020,president,Mariposa,"4,088","5,950",Joseph R. Biden,Donald J. Trump
+2020,president,Mendocino,"28,782","13,267",Joseph R. Biden,Donald J. Trump
+2020,president,Merced,"48,991","39,397",Joseph R. Biden,Donald J. Trump
+2020,president,Modoc,"1,150","3,109",Joseph R. Biden,Donald J. Trump
+2020,president,Mono,"4,013","2,513",Joseph R. Biden,Donald J. Trump
+2020,president,Monterey,"113,953","46,299",Joseph R. Biden,Donald J. Trump
+2020,president,Napa,"49,817","20,676",Joseph R. Biden,Donald J. Trump
+2020,president,Nevada,"36,359","26,779",Joseph R. Biden,Donald J. Trump
+2020,president,Orange,"814,009","676,498",Joseph R. Biden,Donald J. Trump
+2020,president,Placer,"106,869","122,488",Joseph R. Biden,Donald J. Trump
+2020,president,Plumas,"4,561","6,445",Joseph R. Biden,Donald J. Trump
+2020,president,Riverside,"528,340","449,144",Joseph R. Biden,Donald J. Trump
+2020,president,Sacramento,"440,808","259,405",Joseph R. Biden,Donald J. Trump
+2020,president,San Benito,"17,628","10,590",Joseph R. Biden,Donald J. Trump
+2020,president,San Bernardino,"455,859","366,257",Joseph R. Biden,Donald J. Trump
+2020,president,San Diego,"964,650","600,094",Joseph R. Biden,Donald J. Trump
+2020,president,San Francisco,"378,156","56,417",Joseph R. Biden,Donald J. Trump
+2020,president,San Joaquin,"161,137","121,098",Joseph R. Biden,Donald J. Trump
+2020,president,San Luis Obispo,"88,310","67,436",Joseph R. Biden,Donald J. Trump
+2020,president,San Mateo,"291,496","75,584",Joseph R. Biden,Donald J. Trump
+2020,president,Santa Barbara,"129,963","65,736",Joseph R. Biden,Donald J. Trump
+2020,president,Santa Clara,"617,967","214,612",Joseph R. Biden,Donald J. Trump
+2020,president,Santa Cruz,"114,246","26,937",Joseph R. Biden,Donald J. Trump
+2020,president,Shasta,"30,000","60,789",Joseph R. Biden,Donald J. Trump
+2020,president,Sierra,730,"1,142",Joseph R. Biden,Donald J. Trump
+2020,president,Siskiyou,"9,593","13,290",Joseph R. Biden,Donald J. Trump
+2020,president,Solano,"131,639","69,306",Joseph R. Biden,Donald J. Trump
+2020,president,Sonoma,"199,938","61,825",Joseph R. Biden,Donald J. Trump
+2020,president,Stanislaus,"105,841","104,145",Joseph R. Biden,Donald J. Trump
+2020,president,Sutter,"17,367","24,375",Joseph R. Biden,Donald J. Trump
+2020,president,Tehama,"8,911","19,141",Joseph R. Biden,Donald J. Trump
+2020,president,Trinity,"2,851","3,188",Joseph R. Biden,Donald J. Trump
+2020,president,Tulare,"66,105","77,579",Joseph R. Biden,Donald J. Trump
+2020,president,Tuolumne,"11,978","17,689",Joseph R. Biden,Donald J. Trump
+2020,president,Ventura,"251,388","162,207",Joseph R. Biden,Donald J. Trump
+2020,president,Yolo,"67,598","27,292",Joseph R. Biden,Donald J. Trump
+2020,president,Yuba,"11,230","17,676",Joseph R. Biden,Donald J. Trump
+2022,governor,Alameda,"387,046","100,923",Gavin Newsom,Brian Dahle
+2022,governor,Alpine,363,256,Gavin Newsom,Brian Dahle
+2022,governor,Amador,"6,027","12,628",Gavin Newsom,Brian Dahle
+2022,governor,Butte,"31,502","40,939",Gavin Newsom,Brian Dahle
+2022,governor,Calaveras,"7,103","14,137",Gavin Newsom,Brian Dahle
+2022,governor,Colusa,"1,553","4,009",Gavin Newsom,Brian Dahle
+2022,governor,Contra Costa,"265,371","123,132",Gavin Newsom,Brian Dahle
+2022,governor,Del Norte,"3,264","5,111",Gavin Newsom,Brian Dahle
+2022,governor,El Dorado,"34,534","54,137",Gavin Newsom,Brian Dahle
+2022,governor,Fresno,"98,417","120,668",Gavin Newsom,Brian Dahle
+2022,governor,Glenn,"1,930","6,000",Gavin Newsom,Brian Dahle
+2022,governor,Humboldt,"29,541","18,257",Gavin Newsom,Brian Dahle
+2022,governor,Imperial,"16,711","13,158",Gavin Newsom,Brian Dahle
+2022,governor,Inyo,"3,382","4,095",Gavin Newsom,Brian Dahle
+2022,governor,Kern,"69,706","119,006",Gavin Newsom,Brian Dahle
+2022,governor,Kings,"9,389","17,523",Gavin Newsom,Brian Dahle
+2022,governor,Lake,"9,771","10,360",Gavin Newsom,Brian Dahle
+2022,governor,Lassen,"1,444","7,726",Gavin Newsom,Brian Dahle
+2022,governor,Los Angeles,"1,620,053","769,174",Gavin Newsom,Brian Dahle
+2022,governor,Madera,"13,283","23,678",Gavin Newsom,Brian Dahle
+2022,governor,Marin,"95,289","23,775",Gavin Newsom,Brian Dahle
+2022,governor,Mariposa,"2,944","4,896",Gavin Newsom,Brian Dahle
+2022,governor,Mendocino,"19,031","11,363",Gavin Newsom,Brian Dahle
+2022,governor,Merced,"25,200","30,073",Gavin Newsom,Brian Dahle
+2022,governor,Modoc,687,"2,725",Gavin Newsom,Brian Dahle
+2022,governor,Mono,"2,493","2,076",Gavin Newsom,Brian Dahle
+2022,governor,Monterey,"65,262","36,867",Gavin Newsom,Brian Dahle
+2022,governor,Napa,"32,437","17,671",Gavin Newsom,Brian Dahle
+2022,governor,Nevada,"26,655","24,082",Gavin Newsom,Brian Dahle
+2022,governor,Orange,"464,206","492,734",Gavin Newsom,Brian Dahle
+2022,governor,Placer,"73,619","108,450",Gavin Newsom,Brian Dahle
+2022,governor,Plumas,"3,083","5,550",Gavin Newsom,Brian Dahle
+2022,governor,Riverside,"285,000","310,901",Gavin Newsom,Brian Dahle
+2022,governor,Sacramento,"274,680","202,933",Gavin Newsom,Brian Dahle
+2022,governor,San Benito,"10,428","9,150",Gavin Newsom,Brian Dahle
+2022,governor,San Bernardino,"215,391","239,109",Gavin Newsom,Brian Dahle
+2022,governor,San Diego,"574,121","455,107",Gavin Newsom,Brian Dahle
+2022,governor,San Francisco,"257,402","44,064",Gavin Newsom,Brian Dahle
+2022,governor,San Joaquin,"85,498","91,827",Gavin Newsom,Brian Dahle
+2022,governor,San Luis Obispo,"61,166","58,464",Gavin Newsom,Brian Dahle
+2022,governor,San Mateo,"185,599","61,918",Gavin Newsom,Brian Dahle
+2022,governor,Santa Barbara,"80,648","54,726",Gavin Newsom,Brian Dahle
+2022,governor,Santa Clara,"379,377","162,518",Gavin Newsom,Brian Dahle
+2022,governor,Santa Cruz,"79,117","25,052",Gavin Newsom,Brian Dahle
+2022,governor,Shasta,"18,607","49,913",Gavin Newsom,Brian Dahle
+2022,governor,Sierra,529,"1,014",Gavin Newsom,Brian Dahle
+2022,governor,Siskiyou,"6,326","11,397",Gavin Newsom,Brian Dahle
+2022,governor,Solano,"77,769","52,850",Gavin Newsom,Brian Dahle
+2022,governor,Sonoma,"140,041","57,413",Gavin Newsom,Brian Dahle
+2022,governor,Stanislaus,"55,311","75,656",Gavin Newsom,Brian Dahle
+2022,governor,Sutter,"9,082","19,024",Gavin Newsom,Brian Dahle
+2022,governor,Tehama,"5,024","15,607",Gavin Newsom,Brian Dahle
+2022,governor,Trinity,"1,860","2,667",Gavin Newsom,Brian Dahle
+2022,governor,Tulare,"33,273","58,053",Gavin Newsom,Brian Dahle
+2022,governor,Tuolumne,"8,471","14,759",Gavin Newsom,Brian Dahle
+2022,governor,Ventura,"153,226","127,709",Gavin Newsom,Brian Dahle
+2022,governor,Yolo,"44,328","22,807",Gavin Newsom,Brian Dahle
+2022,governor,Yuba,"6,534","13,097",Gavin Newsom,Brian Dahle
+2022,senate,Alameda,"383,300","94,283",Alex Padilla,Mark P. Meuser
+2022,senate,Alpine,372,240,Alex Padilla,Mark P. Meuser
+2022,senate,Amador,"6,522","11,917",Alex Padilla,Mark P. Meuser
+2022,senate,Butte,"33,467","38,183",Alex Padilla,Mark P. Meuser
+2022,senate,Calaveras,"7,649","13,415",Alex Padilla,Mark P. Meuser
+2022,senate,Colusa,"1,807","3,651",Alex Padilla,Mark P. Meuser
+2022,senate,Contra Costa,"267,331","116,122",Alex Padilla,Mark P. Meuser
+2022,senate,Del Norte,"3,400","4,852",Alex Padilla,Mark P. Meuser
+2022,senate,El Dorado,"36,669","51,025",Alex Padilla,Mark P. Meuser
+2022,senate,Fresno,"100,963","113,845",Alex Padilla,Mark P. Meuser
+2022,senate,Glenn,"2,234","5,600",Alex Padilla,Mark P. Meuser
+2022,senate,Humboldt,"30,612","17,096",Alex Padilla,Mark P. Meuser
+2022,senate,Imperial,"17,774","11,919",Alex Padilla,Mark P. Meuser
+2022,senate,Inyo,"3,488","3,878",Alex Padilla,Mark P. Meuser
+2022,senate,Kern,"73,784","113,432",Alex Padilla,Mark P. Meuser
+2022,senate,Kings,"10,067","16,533",Alex Padilla,Mark P. Meuser
+2022,senate,Lake,"10,138","9,769",Alex Padilla,Mark P. Meuser
+2022,senate,Lassen,"1,888","7,181",Alex Padilla,Mark P. Meuser
+2022,senate,Los Angeles,"1,670,306","715,913",Alex Padilla,Mark P. Meuser
+2022,senate,Madera,"14,018","22,514",Alex Padilla,Mark P. Meuser
+2022,senate,Marin,"95,496","22,326",Alex Padilla,Mark P. Meuser
+2022,senate,Mariposa,"3,050","4,703",Alex Padilla,Mark P. Meuser
+2022,senate,Mendocino,"19,745","10,406",Alex Padilla,Mark P. Meuser
+2022,senate,Merced,"26,755","27,893",Alex Padilla,Mark P. Meuser
+2022,senate,Modoc,802,"2,552",Alex Padilla,Mark P. Meuser
+2022,senate,Mono,"2,594","1,925",Alex Padilla,Mark P. Meuser
+2022,senate,Monterey,"67,153","34,026",Alex Padilla,Mark P. Meuser
+2022,senate,Napa,"32,651","16,549",Alex Padilla,Mark P. Meuser
+2022,senate,Nevada,"27,898","22,478",Alex Padilla,Mark P. Meuser
+2022,senate,Orange,"479,494","489,185",Alex Padilla,Mark P. Meuser
+2022,senate,Placer,"77,540","102,597",Alex Padilla,Mark P. Meuser
+2022,senate,Plumas,"3,405","5,153",Alex Padilla,Mark P. Meuser
+2022,senate,Riverside,"289,599","296,687",Alex Padilla,Mark P. Meuser
+2022,senate,Sacramento,"283,117","188,925",Alex Padilla,Mark P. Meuser
+2022,senate,San Benito,"11,016","8,368",Alex Padilla,Mark P. Meuser
+2022,senate,San Bernardino,"218,494","226,470",Alex Padilla,Mark P. Meuser
+2022,senate,San Diego,"586,284","432,027",Alex Padilla,Mark P. Meuser
+2022,senate,San Francisco,"254,756","42,699",Alex Padilla,Mark P. Meuser
+2022,senate,San Joaquin,"90,289","85,078",Alex Padilla,Mark P. Meuser
+2022,senate,San Luis Obispo,"63,076","55,087",Alex Padilla,Mark P. Meuser
+2022,senate,San Mateo,"186,891","57,825",Alex Padilla,Mark P. Meuser
+2022,senate,Santa Barbara,"82,255","51,339",Alex Padilla,Mark P. Meuser
+2022,senate,Santa Clara,"383,152","153,249",Alex Padilla,Mark P. Meuser
+2022,senate,Santa Cruz,"80,675","22,810",Alex Padilla,Mark P. Meuser
+2022,senate,Shasta,"20,805","46,750",Alex Padilla,Mark P. Meuser
+2022,senate,Sierra,572,973,Alex Padilla,Mark P. Meuser
+2022,senate,Siskiyou,"6,892","10,607",Alex Padilla,Mark P. Meuser
+2022,senate,Solano,"80,317","49,443",Alex Padilla,Mark P. Meuser
+2022,senate,Sonoma,"143,197","51,982",Alex Padilla,Mark P. Meuser
+2022,senate,Stanislaus,"57,861","70,792",Alex Padilla,Mark P. Meuser
+2022,senate,Sutter,"9,797","17,827",Alex Padilla,Mark P. Meuser
+2022,senate,Tehama,"5,670","14,784",Alex Padilla,Mark P. Meuser
+2022,senate,Trinity,"2,019","2,488",Alex Padilla,Mark P. Meuser
+2022,senate,Tulare,"35,215","55,359",Alex Padilla,Mark P. Meuser
+2022,senate,Tuolumne,"8,932","14,016",Alex Padilla,Mark P. Meuser
+2022,senate,Ventura,"155,231","121,822",Alex Padilla,Mark P. Meuser
+2022,senate,Yolo,"46,094","21,022",Alex Padilla,Mark P. Meuser
+2022,senate,Yuba,"7,043","12,439",Alex Padilla,Mark P. Meuser
+2024,president,Alameda,"499,551","140,789",Kamala D. Harris,Donald J. Trump
+2024,president,Alpine,479,243,Kamala D. Harris,Donald J. Trump
+2024,president,Amador,"7,783","14,018",Kamala D. Harris,Donald J. Trump
+2024,president,Butte,"44,228","47,179",Kamala D. Harris,Donald J. Trump
+2024,president,Calaveras,"9,181","16,625",Kamala D. Harris,Donald J. Trump
+2024,president,Colusa,"2,431","4,414",Kamala D. Harris,Donald J. Trump
+2024,president,Contra Costa,"356,008","155,308",Kamala D. Harris,Donald J. Trump
+2024,president,Del Norte,"4,266","5,999",Kamala D. Harris,Donald J. Trump
+2024,president,El Dorado,"47,703","61,109",Kamala D. Harris,Donald J. Trump
+2024,president,Fresno,"151,628","165,924",Kamala D. Harris,Donald J. Trump
+2024,president,Glenn,"3,260","6,904",Kamala D. Harris,Donald J. Trump
+2024,president,Humboldt,"39,800","21,559",Kamala D. Harris,Donald J. Trump
+2024,president,Imperial,"26,083","26,546",Kamala D. Harris,Donald J. Trump
+2024,president,Inyo,"4,201","4,468",Kamala D. Harris,Donald J. Trump
+2024,president,Kern,"108,241","167,879",Kamala D. Harris,Donald J. Trump
+2024,president,Kings,"15,519","25,074",Kamala D. Harris,Donald J. Trump
+2024,president,Lake,"12,794","13,161",Kamala D. Harris,Donald J. Trump
+2024,president,Lassen,"2,478","8,619",Kamala D. Harris,Donald J. Trump
+2024,president,Los Angeles,"2,417,109","1,189,862",Kamala D. Harris,Donald J. Trump
+2024,president,Madera,"20,981","32,344",Kamala D. Harris,Donald J. Trump
+2024,president,Marin,"116,152","24,054",Kamala D. Harris,Donald J. Trump
+2024,president,Mariposa,"3,622","5,625",Kamala D. Harris,Donald J. Trump
+2024,president,Mendocino,"24,049","13,528",Kamala D. Harris,Donald J. Trump
+2024,president,Merced,"40,190","43,955",Kamala D. Harris,Donald J. Trump
+2024,president,Modoc,"1,008","2,884",Kamala D. Harris,Donald J. Trump
+2024,president,Mono,"3,522","2,294",Kamala D. Harris,Donald J. Trump
+2024,president,Monterey,"93,060","49,226",Kamala D. Harris,Donald J. Trump
+2024,president,Napa,"43,212","20,357",Kamala D. Harris,Donald J. Trump
+2024,president,Nevada,"33,784","26,177",Kamala D. Harris,Donald J. Trump
+2024,president,Orange,"691,731","654,815",Kamala D. Harris,Donald J. Trump
+2024,president,Placer,"103,958","123,941",Kamala D. Harris,Donald J. Trump
+2024,president,Plumas,"4,020","5,725",Kamala D. Harris,Donald J. Trump
+2024,president,Riverside,"451,782","463,677",Kamala D. Harris,Donald J. Trump
+2024,president,Sacramento,"381,564","252,140",Kamala D. Harris,Donald J. Trump
+2024,president,San Benito,"15,179","11,702",Kamala D. Harris,Donald J. Trump
+2024,president,San Bernardino,"362,114","378,416",Kamala D. Harris,Donald J. Trump
+2024,president,San Diego,"841,372","593,270",Kamala D. Harris,Donald J. Trump
+2024,president,San Francisco,"323,719","62,594",Kamala D. Harris,Donald J. Trump
+2024,president,San Joaquin,"126,647","128,996",Kamala D. Harris,Donald J. Trump
+2024,president,San Luis Obispo,"81,314","64,932",Kamala D. Harris,Donald J. Trump
+2024,president,San Mateo,"242,957","76,616",Kamala D. Harris,Donald J. Trump
+2024,president,Santa Barbara,"114,149","64,870",Kamala D. Harris,Donald J. Trump
+2024,president,Santa Clara,"510,744","210,924",Kamala D. Harris,Donald J. Trump
+2024,president,Santa Cruz,"100,998","27,978",Kamala D. Harris,Donald J. Trump
+2024,president,Shasta,"27,130","59,539",Kamala D. Harris,Donald J. Trump
+2024,president,Sierra,641,"1,066",Kamala D. Harris,Donald J. Trump
+2024,president,Siskiyou,"8,329","12,461",Kamala D. Harris,Donald J. Trump
+2024,president,Solano,"113,997","70,345",Kamala D. Harris,Donald J. Trump
+2024,president,Sonoma,"179,600","63,426",Kamala D. Harris,Donald J. Trump
+2024,president,Stanislaus,"85,347","106,986",Kamala D. Harris,Donald J. Trump
+2024,president,Sutter,"13,016","25,372",Kamala D. Harris,Donald J. Trump
+2024,president,Tehama,"7,415","18,503",Kamala D. Harris,Donald J. Trump
+2024,president,Trinity,"2,449","2,979",Kamala D. Harris,Donald J. Trump
+2024,president,Tulare,"53,221","81,854",Kamala D. Harris,Donald J. Trump
+2024,president,Tuolumne,"10,909","17,210",Kamala D. Harris,Donald J. Trump
+2024,president,Ventura,"217,424","158,901",Kamala D. Harris,Donald J. Trump
+2024,president,Yolo,"61,405","27,844",Kamala D. Harris,Donald J. Trump
+2024,president,Yuba,"10,725","18,491",Kamala D. Harris,Donald J. Trump
+2024,senate,Alameda,"489,039","147,721",Adam B. Schiff,Steve Garvey
+2024,senate,Alpine,463,262,Adam B. Schiff,Steve Garvey
+2024,senate,Amador,"7,454","14,534",Adam B. Schiff,Steve Garvey
+2024,senate,Butte,"42,417","49,192",Adam B. Schiff,Steve Garvey
+2024,senate,Calaveras,"8,956","17,109",Adam B. Schiff,Steve Garvey
+2024,senate,Colusa,"2,436","4,471",Adam B. Schiff,Steve Garvey
+2024,senate,Contra Costa,"343,169","165,245",Adam B. Schiff,Steve Garvey
+2024,senate,Del Norte,"4,217","6,084",Adam B. Schiff,Steve Garvey
+2024,senate,El Dorado,"45,734","64,663",Adam B. Schiff,Steve Garvey
+2024,senate,Fresno,"148,396","166,675",Adam B. Schiff,Steve Garvey
+2024,senate,Glenn,"3,122","7,114",Adam B. Schiff,Steve Garvey
+2024,senate,Humboldt,"40,240","22,793",Adam B. Schiff,Steve Garvey
+2024,senate,Imperial,"26,441","26,579",Adam B. Schiff,Steve Garvey
+2024,senate,Inyo,"4,134","4,673",Adam B. Schiff,Steve Garvey
+2024,senate,Kern,"107,501","168,458",Adam B. Schiff,Steve Garvey
+2024,senate,Kings,"15,225","25,354",Adam B. Schiff,Steve Garvey
+2024,senate,Lake,"12,797","13,401",Adam B. Schiff,Steve Garvey
+2024,senate,Lassen,"2,439","8,691",Adam B. Schiff,Steve Garvey
+2024,senate,Los Angeles,"2,335,222","1,220,750",Adam B. Schiff,Steve Garvey
+2024,senate,Madera,"20,538","32,451",Adam B. Schiff,Steve Garvey
+2024,senate,Marin,"112,842","28,490",Adam B. Schiff,Steve Garvey
+2024,senate,Mariposa,"3,582","5,747",Adam B. Schiff,Steve Garvey
+2024,senate,Mendocino,"24,106","14,182",Adam B. Schiff,Steve Garvey
+2024,senate,Merced,"40,394","43,320",Adam B. Schiff,Steve Garvey
+2024,senate,Modoc,978,"2,951",Adam B. Schiff,Steve Garvey
+2024,senate,Mono,"3,384","2,503",Adam B. Schiff,Steve Garvey
+2024,senate,Monterey,"92,302","51,913",Adam B. Schiff,Steve Garvey
+2024,senate,Napa,"42,245","21,986",Adam B. Schiff,Steve Garvey
+2024,senate,Nevada,"33,363","27,987",Adam B. Schiff,Steve Garvey
+2024,senate,Orange,"674,882","688,967",Adam B. Schiff,Steve Garvey
+2024,senate,Placer,"98,198","129,981",Adam B. Schiff,Steve Garvey
+2024,senate,Plumas,"3,921","6,034",Adam B. Schiff,Steve Garvey
+2024,senate,Riverside,"443,181","474,241",Adam B. Schiff,Steve Garvey
+2024,senate,Sacramento,"375,265","263,954",Adam B. Schiff,Steve Garvey
+2024,senate,San Benito,"14,991","12,031",Adam B. Schiff,Steve Garvey
+2024,senate,San Bernardino,"355,667","384,091",Adam B. Schiff,Steve Garvey
+2024,senate,San Diego,"817,805","625,129",Adam B. Schiff,Steve Garvey
+2024,senate,San Francisco,"310,932","66,421",Adam B. Schiff,Steve Garvey
+2024,senate,San Joaquin,"127,205","129,064",Adam B. Schiff,Steve Garvey
+2024,senate,San Luis Obispo,"77,525","68,569",Adam B. Schiff,Steve Garvey
+2024,senate,San Mateo,"237,186","84,474",Adam B. Schiff,Steve Garvey
+2024,senate,Santa Barbara,"110,609","70,126",Adam B. Schiff,Steve Garvey
+2024,senate,Santa Clara,"498,785","224,597",Adam B. Schiff,Steve Garvey
+2024,senate,Santa Cruz,"98,631","30,737",Adam B. Schiff,Steve Garvey
+2024,senate,Shasta,"25,996","61,402",Adam B. Schiff,Steve Garvey
+2024,senate,Sierra,617,"1,110",Adam B. Schiff,Steve Garvey
+2024,senate,Siskiyou,"8,087","12,958",Adam B. Schiff,Steve Garvey
+2024,senate,Solano,"113,204","72,404",Adam B. Schiff,Steve Garvey
+2024,senate,Sonoma,"176,477","68,712",Adam B. Schiff,Steve Garvey
+2024,senate,Stanislaus,"86,040","106,444",Adam B. Schiff,Steve Garvey
+2024,senate,Sutter,"12,984","25,129",Adam B. Schiff,Steve Garvey
+2024,senate,Tehama,"7,098","18,632",Adam B. Schiff,Steve Garvey
+2024,senate,Trinity,"2,413","3,148",Adam B. Schiff,Steve Garvey
+2024,senate,Tulare,"51,972","83,439",Adam B. Schiff,Steve Garvey
+2024,senate,Tuolumne,"10,479","17,372",Adam B. Schiff,Steve Garvey
+2024,senate,Ventura,"211,381","169,660",Adam B. Schiff,Steve Garvey
+2024,senate,Yolo,"61,084","29,758",Adam B. Schiff,Steve Garvey
+2024,senate,Yuba,"10,501","18,711",Adam B. Schiff,Steve Garvey

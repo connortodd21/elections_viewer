@@ -7,11 +7,11 @@ writeIntermediateResults = getWriteIntermediateResultsInput()
 data_processor = STATES_TO_DATA_PROCESSOR[state]()
 
 data = data_processor.getRawData()
-data = data_processor.filterData(data)
 data = data_processor.cleanData(data)
+data = data_processor.filterData(data)
 data = data_processor.dropData(data)
 if writeIntermediateResults:
     data_processor.setIntermediateData(data)
     data_processor.writeIntermediateDataset()
-data = data_processor.generateCountyByCountyResults(data).sort_values(["year", "election"])
+data = data_processor.generateCountyByCountyResults(data).sort_values([data_processor.YEAR, data_processor.ELECTION])
 data_processor.writeDataToResults(data)
