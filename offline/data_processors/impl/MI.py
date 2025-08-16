@@ -6,6 +6,7 @@ from data_processors.data_processor import DataProcessor
 
 class MIStateWideElectionDataProcessor(DataProcessor):
 
+    # raw data file name
     MI_RAW_DATA_FILE_NAME = "STATE_GENERAL_MI_CENR_BY_COUNTY"
 
     # column names and references to raw data from michigan 
