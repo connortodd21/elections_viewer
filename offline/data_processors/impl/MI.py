@@ -16,9 +16,7 @@ class MIStateWideElectionDataProcessor(DataProcessor):
     CANDIDATE_FULL_NAME = "CandidateFullName"
     CANDIDATE_VOTES = "CandidateVotes"
     PARTY_DESCRIPTION = "PartyDescription"
-    PARTY_NAMES = ["Democratic", "Republican", "DEMOCRATIC", "REPUBLICAN"]
-    REPUBLICAN = ["Republican", "REPUBLICAN"]
-    DEMOCRAT = ["Democratic", "DEMOCRATIC"]
+
     # office code mappings in raw datasets from 2016-2022
     OFFICE_CODES_OLD = {
         "1": PRESIDENT,
@@ -31,6 +29,9 @@ class MIStateWideElectionDataProcessor(DataProcessor):
         "2": GOVERNOR,
         "7": SENATE
     }
+
+    DEMOCRATIC = "Democratic"
+    REPUBLICAN = "Republican"
     
     def getState(self) -> str:
         return MI
@@ -71,7 +72,12 @@ class MIStateWideElectionDataProcessor(DataProcessor):
             data[self.COUNTY_NAME].replace(st_joseph_old, st_joseph_new, inplace=True)
             return data
 
-        return data.pipe(addFirstNameColumn).pipe(fixCountyNameData)
+        def unifyPartyNames(data: pd.DataFrame) -> pd.DataFrame:
+            data[self.PARTY_DESCRIPTION].replace("DEMOCRATIC", self.DEMOCRATIC, inplace=True)
+            data[self.PARTY_DESCRIPTION].replace("REPUBLICAN", self.REPUBLICAN, inplace=True)
+            return data
+
+        return data.pipe(addFirstNameColumn).pipe(fixCountyNameData).pipe(unifyPartyNames)
 
     def filterData(self, data: pd.DataFrame) -> pd.DataFrame:
         # only use statewide elections
@@ -89,7 +95,7 @@ class MIStateWideElectionDataProcessor(DataProcessor):
 
         # only using democrat and republican candidates
         def filterForOnlyDemocratOrRepublicanCandidates(data: pd.DataFrame) -> pd.DataFrame:
-            return data[data['PartyDescription'].isin(self.PARTY_NAMES)]
+            return data[data['PartyDescription'].isin([self.DEMOCRATIC, self.REPUBLICAN])]
         
         return data.pipe(filterOutWriteIns).pipe(filterForOnlyDemocratOrRepublicanCandidates).pipe(filterForStatewideElectionType)
 
@@ -110,8 +116,8 @@ class MIStateWideElectionDataProcessor(DataProcessor):
                 elections = [d for _, d in result_for_date.groupby([self.OFFICE_CODE])]
                 for election in elections:
                     year = self.getYear(election)
-                    r_results = election[election[self.PARTY_DESCRIPTION].isin(self.REPUBLICAN)]
-                    d_results = election[election[self.PARTY_DESCRIPTION].isin(self.DEMOCRAT)]
+                    r_results = election[election[self.PARTY_DESCRIPTION] == self.REPUBLICAN]
+                    d_results = election[election[self.PARTY_DESCRIPTION] == self.DEMOCRATIC]
                     county_election_results = self.createCountyLevelResultsDataFrame(
                         year, 
                         self.getElectionType(election, year),
