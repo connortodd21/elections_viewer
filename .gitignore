@@ -1,4 +1,54 @@
+################################################
+### General files to ignore
+################################################
 **__pycache__**
 **.DS_Store**
-**database/**/raw
-**database/**/processed
+
+################################################
+### Offline files to ignore
+################################################
+database/**/raw/*
+database/**/processed/*
+
+################################################
+### Frontend files to ignore
+################################################
+# dependencies
+frontend/node_modules
+frontend/.pnp
+frontend/.pnp.*
+frontend/.yarn/*
+frontend/!.yarn/patches
+frontend/!.yarn/plugins
+frontend/!.yarn/releases
+frontend/!.yarn/versions
+
+# testing
+frontend/coverage
+
+# next.js
+frontend//.next/
+frontend//out/
+
+# production
+frontend//build
+
+# misc
+frontend/.DS_Store
+frontend/*.pem
+
+# debug
+frontend/frontend/frontend/npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+frontend/.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+frontend/.env*
+
+# vercel
+frontend/.vercel
+
+# typescript
+frontend/*.tsbuildinfo
+frontend/next-env.d.ts
