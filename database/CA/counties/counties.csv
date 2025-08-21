@@ -5,9 +5,9 @@ Amador,CA,06005
 Butte,CA,06007
 Calaveras,CA,06009
 Colusa,CA,06011
-Contra,CA,06013
-Del,CA,06015
-El,CA,06017
+Contra Costa,CA,06013
+Del Norte,CA,06015
+El Dorado,CA,06017
 Fresno,CA,06019
 Glenn,CA,06021
 Humboldt,CA,06023
@@ -17,7 +17,7 @@ Kern,CA,06029
 Kings,CA,06031
 Lake,CA,06033
 Lassen,CA,06035
-Los,CA,06037
+Los Angeles,CA,06037
 Madera,CA,06039
 Marin,CA,06041
 Mariposa,CA,06043
@@ -33,16 +33,16 @@ Placer,CA,06061
 Plumas,CA,06063
 Riverside,CA,06065
 Sacramento,CA,06067
-San,CA,06069
-San,CA,06071
-San,CA,06073
-San,CA,06075
-San,CA,06077
-San,CA,06079
-San,CA,06081
-Santa,CA,06083
-Santa,CA,06085
-Santa,CA,06087
+San Benito,CA,06069
+San Bernardino,CA,06071
+San Diego,CA,06073
+San Francisco,CA,06075
+San Joaquin,CA,06077
+San Luis Obispo,CA,06079
+San Mateo,CA,06081
+Santa Barbara,CA,06083
+Santa Clara,CA,06085
+Santa Cruz,CA,06087
 Shasta,CA,06089
 Sierra,CA,06091
 Siskiyou,CA,06093

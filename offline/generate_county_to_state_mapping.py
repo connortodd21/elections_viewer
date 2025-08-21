@@ -14,7 +14,7 @@ counties = gc.get_us_counties()
 for county in counties:
     if county['state'] == state:
         state_counties = pd.concat([state_counties, pd.DataFrame({
-            "Name": [county['name'].split(" ")[0]],
+            "Name": [county['name'].rsplit(' ', 1)[0]],
             "State": [county['state']],
             "FIPS": [county['fips']]
         })])
