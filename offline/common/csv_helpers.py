@@ -8,7 +8,7 @@ def writeDataFrameToCSV(path: str, data: pd.DataFrame) -> None:
     createFile(path)
     data.to_csv(path,  index=False)
 
-# read csv as Df
+# read tsv as Df
 def readTsvAsCsv(path: str) -> pd.DataFrame:
     return pd.read_csv(path,  sep='\t', index_col=None, lineterminator="\n")
 
