@@ -27,8 +27,8 @@ frontend/!.yarn/versions
 frontend/coverage
 
 # next.js
-frontend//.next/
-frontend//out/
+frontend/.next/
+frontend/out/
 
 # production
 frontend//build
