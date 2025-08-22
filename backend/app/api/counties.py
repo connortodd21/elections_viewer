@@ -1,21 +1,22 @@
 from flask import Response
 
 from app.api import bp
+from helpers.constants import *
 from dataloader.counties_dataloader import get_counties_by_state as dataloader_get_counties_by_state
+from dataloader.counties_dataloader import get_county
+from dataloader.state_dataloader import get_election_results_for_county as dataloader_get_election_results_for_county
+from exceptions.InputException import *
 from formatters.json_formatter import dfToJson
 from validators.state_validator import isValidState
 
 @bp.route('/get_counties_by_state/<string:state>', methods=['GET'])
-def get_counties_by_state(state):
+def get_counties_by_state(state: str) -> Response:
     """
     Given a state, return a list of all US counties within the state 
     """
-
     # input validation (ensure state is 2 letters and valid)
     if not isValidState(state):
-        error_message = "Please input a valid state"
-        print(error_message)
-        raise KeyError(error_message)
+        raise InvalidInputError("Please input a valid state")
     # read from db
     counties = dataloader_get_counties_by_state(state)
 
@@ -24,3 +25,27 @@ def get_counties_by_state(state):
 
     return Response(json_data, mimetype='application/json')
     
+@bp.route('/get_election_results_for_county/<string:county_name>', methods=['GET'])
+def get_election_results_for_county(county_name: str) -> Response:
+    """
+    Given a county name, get the historical election data for that county
+    """
+    # input validation 
+    if not isinstance(county_name, str):
+        raise InvalidInputError("Input must be a string")
+
+    county_name = county_name.capitalize()
+    # get the state the county belongs to
+    county_df = get_county(county_name)
+    print(county_df)
+    state = county_df[STATE].iloc[0]
+    county = county_df[NAME].iloc[0]
+    print(state, county)
+
+    # read historical data from db
+    election_results = dataloader_get_election_results_for_county(county, state)
+
+    # format
+    print(election_results)
+
+    return Response({}, mimetype='application/json')
