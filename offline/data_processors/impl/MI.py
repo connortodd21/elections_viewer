@@ -46,7 +46,7 @@ class MIStateWideElectionDataProcessor(DataProcessor):
     def cleanData(self, data: pd.DataFrame) -> pd.DataFrame:
         # combine first/last names
         def addFirstNameColumn(data: pd.DataFrame) -> pd.DataFrame:
-            data["CandidateFullName"] = data["CandidateFirstName"] + " " + data["CandidateLastName"]
+            data["CandidateFullName"] = data["CandidateFirstName"].str.capitalize() + " " + data["CandidateLastName"].str.capitalize()
             return data
 
         def fixCountyNameData(data: pd.DataFrame) -> pd.DataFrame:
