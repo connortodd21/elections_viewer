@@ -13,7 +13,7 @@ PRESIDENT = "president"
 SENATE = "senate"
 GOVERNOR = "governor"
 
-# FIPS-related keys
+# all-counties-related keys
 NAME = "Name"
 STATE = "State"
 FIPS = "FIPS"

@@ -37,15 +37,13 @@ def get_election_results_for_county(county_name: str) -> Response:
     county_name = county_name.capitalize()
     # get the state the county belongs to
     county_df = get_county(county_name)
-    print(county_df)
     state = county_df[STATE].iloc[0]
     county = county_df[NAME].iloc[0]
-    print(state, county)
 
-    # read historical data from db
+    # read elections data from db
     election_results = dataloader_get_election_results_for_county(county, state)
 
-    # format
-    print(election_results)
+    # format (make all names capitalized)
+    json_data = dfToJson(election_results)
 
-    return Response({}, mimetype='application/json')
+    return Response(json_data, mimetype='application/json')
