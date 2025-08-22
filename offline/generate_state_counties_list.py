@@ -16,7 +16,7 @@ for county in counties:
         state_counties = pd.concat([state_counties, pd.DataFrame({
             "Name": [county['name'].rsplit(' ', 1)[0]],
             "State": [county['state']],
-            "FIPS": [county['fips']]
+            "FIPS": [str(county['fips'])] # needed to include state prefixes
         })])
 
 county_path = f"{getGitRoot()}/{COUNTIES_FILE_PATH.format(state)}"

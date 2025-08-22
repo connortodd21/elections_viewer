@@ -1,0 +1,3 @@
+from tests.test_generate_counties_to_state_list import testGenerateCountiesToStateList
+
+testGenerateCountiesToStateList()
