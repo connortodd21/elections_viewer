@@ -12,6 +12,19 @@ import type { DSVRowString } from 'd3-dsv';
 
 const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/counties-10m.json";
 
+  /**
+   * 
+  {
+    "type":"Polygon",
+    "arcs":[[1614,1615,1616,1617,1618,1619]],
+    "id":"26161",
+    "properties":{
+      "name":"Washtenaw"
+    } 
+  },
+   */
+
+
 interface MapChartProps {
   setTooltipContent: React.Dispatch<React.SetStateAction<string>>;
 }
@@ -21,11 +34,14 @@ const MapChart = (props : MapChartProps) => {
   const [county_results, setCounties] = useState<DSVRowString<string>[]>([]); 
   const [counties_by_state, setCountiesByState] = useState([])
 
+  const getCountyData = async() => {
+    console.log("data from server")
+    const response = await fetch(`http://localhost:5000/api/get_counties_by_state/` + "MI")
+    setCountiesByState(await response.json())
+  }
+
   useEffect(() => {
-    // https://www.bls.gov/lau/
-    csv("/statewide_results.csv").then(county_results => {
-      setCounties(county_results.map(county => county))
-    });
+    getCountyData()
   }, []);
 
   return (
