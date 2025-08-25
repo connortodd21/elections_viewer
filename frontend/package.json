@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.7",
     "@mdworld/react-simple-maps": "^3.0.1-alpha.1",
     "@types/react": "^19.1.10",
     "d3-fetch": "^3.0.1",

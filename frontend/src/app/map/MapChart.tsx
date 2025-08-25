@@ -6,23 +6,11 @@ import {
   Geographies,
   Geography
 } from "@mdworld/react-simple-maps";
-import { scaleLinear } from "d3-scale";
-import { csv } from "d3-fetch";
-import type { DSVRowString } from 'd3-dsv';
+import { Dialog } from '@headlessui/react'
+
+import DetailedCounty from "./DetailedCounty"
 
 const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/counties-10m.json";
-
-  /**
-   * 
-  {
-    "type":"Polygon",
-    "arcs":[[1614,1615,1616,1617,1618,1619]],
-    "id":"26161",
-    "properties":{
-      "name":"Washtenaw"
-    } 
-  },
-   */
 
 
 interface MapChartProps {
@@ -31,54 +19,63 @@ interface MapChartProps {
 
 const MapChart = (props : MapChartProps) => {
 
-  const [county_results, setCountyResults] = useState<DSVRowString<string>[]>([]); 
-
-  const getCountyData = async(county: string) => {
-    const response = await fetch(`http://localhost:5000/api/get_election_results_for_county/` + county)
-    setCountyResults(await response.json())
-  }
-  
+  const [isDeailedCountyOpen, setIsDetailedCountyOpen] = useState(false)
+  const [countyName, setCountyName] = useState("")
 
   useEffect(() => {  }, []);
 
   return (
-    <div className="my-anchor-element">
-      <ComposableMap projection="geoAlbersUsa">
-          <Geographies geography={geoUrl}>
-            {({ geographies }) =>
-              geographies.map((geo) => (
-                <Geography
-                  id={geo.properties.name}
-                  key={geo.rsmKey}
-                  geography={geo}
-                  onMouseEnter={() => {
-                    let countyName = geo.properties.name;
-                    props.setTooltipContent(countyName);
-                    getCountyData(countyName)
-                  }}
-                  onMouseOut={() => {
-                    props.setTooltipContent("")
-                  }}
-                  style={{
-                    default: {
-                      fill: "#D6D6DA",
-                      outline: "none"
-                    },
-                    hover: {
-                      fill: "#F53",
-                      outline: "none"
-                    },
-                    pressed: {
-                      fill: "#E42",
-                      outline: "none"
-                    }
-                  }}
-                />
-              ))
-            }
-          </Geographies>
-      </ComposableMap>
-    </div>
+    <>
+      <div>
+        <Dialog open={isDeailedCountyOpen} as="div" className="relative z-10 focus:outline-none" onClose={close} __demoMode>
+          <DetailedCounty setIsDetailedCountyOpen={setIsDetailedCountyOpen} countyName={countyName}></DetailedCounty>
+        </Dialog>
+      </div>
+      <div className="my-anchor-element">
+        <ComposableMap projection="geoAlbersUsa">
+            <Geographies geography={geoUrl}>
+              {({ geographies }) =>
+                geographies.map((geo) => {
+                  let countyName = geo.properties.name;
+                  return (
+                    <Geography
+                      id={geo.properties.name}
+                      key={geo.rsmKey}
+                      geography={geo}
+                      onMouseEnter={() => {
+                        props.setTooltipContent(countyName);
+                        setCountyName(countyName)
+                      }}
+                      onMouseOut={() => {
+                        props.setTooltipContent("")
+                      }}
+                      onClick={() => {
+                        console.log(geo)
+                        console.log(countyName)
+                        setIsDetailedCountyOpen(true)
+                      }}
+                      style={{
+                        default: {
+                          fill: "#D6D6DA",
+                          outline: "none"
+                        },
+                        hover: {
+                          fill: "#F53",
+                          outline: "none"
+                        },
+                        pressed: {
+                          fill: "#E42",
+                          outline: "none"
+                        }
+                      }}
+                    />
+                  )
+                })
+              }
+            </Geographies>
+        </ComposableMap>
+      </div>
+    </>
   );
 };
 
