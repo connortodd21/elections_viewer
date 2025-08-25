@@ -1,3 +1,5 @@
+from string import capwords
+
 import pandas as pd
 
 from common.defs import *
@@ -79,7 +81,12 @@ class MIStateWideElectionDataProcessor(DataProcessor):
             data[self.PARTY_DESCRIPTION].replace("REPUBLICAN", self.REPUBLICAN, inplace=True)
             return data
 
-        return data.pipe(addFirstNameColumn).pipe(fixCountyNameData).pipe(unifyPartyNames)
+        # County names are all uppercase in the raw dataset. Change to be capitalized
+        def capitalizeCountyNames(data: pd.DataFrame) -> pd.DataFrame:
+            data[self.COUNTY_NAME] = data[self.COUNTY_NAME].apply(capwords)
+            return data
+
+        return data.pipe(addFirstNameColumn).pipe(fixCountyNameData).pipe(unifyPartyNames).pipe(capitalizeCountyNames)
 
     def filterData(self, data: pd.DataFrame) -> pd.DataFrame:
         # only use statewide elections

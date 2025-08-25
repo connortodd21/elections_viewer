@@ -8,6 +8,6 @@ from helpers.os_helpers import getGitRoot
 def get_election_results_for_county(county: str, state: str) -> pd.DataFrame:
     try:
         df = readCsv(f"{getGitRoot()}/{RESULTS_FILE_PATH.format(state)}/statewide_results.csv")
-        return df[df[COUNTY] == county.upper()]
+        return df[df[COUNTY] == county]
     except FileNotFoundError:
         raise DataNotGeneratedException(county)
