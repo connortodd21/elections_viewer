@@ -1,5 +1,4 @@
 from flask import Response
-from string import capwords
 from werkzeug.http import HTTP_STATUS_CODES
 
 from app.api import bp
@@ -11,6 +10,7 @@ from exceptions.InputException import *
 from exceptions.DataNotGeneratedException import *
 from formatters.json_formatter import dfToJson
 from helpers.constants import *
+from helpers.counties_helper import capitalizeCountyName
 from validators.state_validator import isValidState
 
 @bp.route('/get_counties_by_state/<string:state>', methods=['GET'])
@@ -40,7 +40,7 @@ def get_election_results_for_county(county_name: str) -> Response:
         if not isinstance(county_name, str):
             raise InvalidInputError("Input must be a string")
 
-        county_name = capwords(county_name)
+        county_name = capitalizeCountyName(county_name)
 
         # get the state the county belongs to
         county_df = get_county(county_name)
