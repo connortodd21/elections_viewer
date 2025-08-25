@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, memo } from "react";
 import {
   ComposableMap,
   Geographies,
@@ -32,11 +32,8 @@ interface MapChartProps {
 const MapChart = (props : MapChartProps) => {
 
   const [county_results, setCountyResults] = useState<DSVRowString<string>[]>([]); 
-  const [counties_by_state, setCountiesByState] = useState([])
-  const [county_data, setCountyData] = useState([])
 
   const getCountyData = async(county: string) => {
-    console.log("data from server")
     const response = await fetch(`http://localhost:5000/api/get_election_results_for_county/` + county)
     setCountyResults(await response.json())
   }
@@ -45,17 +42,22 @@ const MapChart = (props : MapChartProps) => {
   useEffect(() => {  }, []);
 
   return (
-    <div data-tip="">
+    <div className="my-anchor-element">
       <ComposableMap projection="geoAlbersUsa">
           <Geographies geography={geoUrl}>
             {({ geographies }) =>
               geographies.map((geo) => (
                 <Geography
+                  id={geo.properties.name}
                   key={geo.rsmKey}
                   geography={geo}
                   onMouseEnter={() => {
-                    props.setTooltipContent(geo.properties.name);
-                    getCountyData(geo.properties.name)
+                    let countyName = geo.properties.name;
+                    props.setTooltipContent(countyName);
+                    getCountyData(countyName)
+                  }}
+                  onMouseOut={() => {
+                    props.setTooltipContent("")
                   }}
                   style={{
                     default: {
@@ -80,4 +82,4 @@ const MapChart = (props : MapChartProps) => {
   );
 };
 
-export default MapChart;
+export default memo(MapChart);

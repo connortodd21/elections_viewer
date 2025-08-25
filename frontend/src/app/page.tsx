@@ -10,12 +10,10 @@ export default function Home() {
 
   return (
     <div>
-      <Tooltip anchorSelect=".my-anchor-element" place="top">
+      <Tooltip anchorSelect=".my-anchor-element" clickable float>
         {tooltipContent}
       </Tooltip>
-      <a className="my-anchor-element">
-        <MapChart setTooltipContent={setTooltipContent}/>
-      </a>
+      <MapChart setTooltipContent={setTooltipContent} />
     </div>
   );
 }
