@@ -2,22 +2,35 @@ import { Button, DialogPanel,  } from '@headlessui/react'
 import { useState, memo, useEffect } from 'react'
 import type { DSVRowString } from 'd3-dsv';
 
+import { CountyData } from './MapChart';
+
+interface CountyResults {
+    year: string,
+    election: string,
+    county: string,
+    raw_votes_D: string,
+    raw_votes_R: string,
+    d_candidate: string,
+    r_candidate: string
+
+}
+
 interface DetailedCountyProps {
   setIsDetailedCountyOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  countyName: string
+  detailedCountyData: CountyData
 }
 
 const DetailedCounty = (props : DetailedCountyProps) => {
 
-    const [countyResults, setCountyResults] = useState<DSVRowString<string>[]>([]); 
+    const [countyResults, setCountyResults] = useState<CountyResults[]>([]); 
 
-    const getCountyData = async(county: string) => {
-        const response = await fetch(`http://localhost:5000/api/get_election_results_for_county/` + county)
+    const getCountyData = async(county: string, fips: string) => {
+        const response = await fetch(`http://localhost:5000/api/get_election_results_for_county/` + fips + "/" + county)
         setCountyResults(await response.json())
     }
 
     useEffect(() => { 
-        getCountyData(props.countyName)
+        getCountyData(props.detailedCountyData.countyName, props.detailedCountyData.fips)
     }, []);
 
     return (
@@ -26,18 +39,25 @@ const DetailedCounty = (props : DetailedCountyProps) => {
             <DialogPanel
                 transition
             >
-                <p className="mt-2 text-sm/6 text-white/50">
-                Hi
-                </p>
-                <div className="mt-4">
+                <p style={{ color: 'purple', fontWeight: 'bold' }}>{props.detailedCountyData.countyName}</p> 
+                <ul>
+                    {countyResults.map((countyResult) => (
+                        <div>
+                            <li key={countyResult.year+"_"+countyResult.election} style={{ color: 'green', fontWeight: 'bold' }}>
+                                {countyResult.d_candidate} {countyResult.raw_votes_D} {" "}       
+                                {countyResult.r_candidate} {countyResult.raw_votes_R}
+                            </li>
+                        </div>
+                    ))}
+                </ul>
                 <Button
+                    style={{ color: 'red', fontWeight: 'bold' }}
                     onClick={() => {
                         props.setIsDetailedCountyOpen(false)
                     }}
                 >
                     Close
                 </Button>
-                </div>
             </DialogPanel>
             </div>
         </div>

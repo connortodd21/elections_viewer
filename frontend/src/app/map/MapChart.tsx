@@ -12,23 +12,34 @@ import DetailedCounty from "./DetailedCounty"
 
 const geoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/counties-10m.json";
 
-
 interface MapChartProps {
   setTooltipContent: React.Dispatch<React.SetStateAction<string>>;
 }
 
+export interface CountyData {
+  countyName: string;
+  fips: string
+}
+
 const MapChart = (props : MapChartProps) => {
 
+  const closeDialog = () => {
+    setIsDetailedCountyOpen(false)
+  }
+
   const [isDeailedCountyOpen, setIsDetailedCountyOpen] = useState(false)
-  const [countyName, setCountyName] = useState("")
+  const [countyData, setCountyData] = useState<CountyData>({
+    countyName: "",
+    fips: ""
+  })
 
   useEffect(() => {  }, []);
 
   return (
     <>
       <div>
-        <Dialog open={isDeailedCountyOpen} as="div" className="relative z-10 focus:outline-none" onClose={close} __demoMode>
-          <DetailedCounty setIsDetailedCountyOpen={setIsDetailedCountyOpen} countyName={countyName}></DetailedCounty>
+        <Dialog open={isDeailedCountyOpen} as="div" className="relative z-10 focus:outline-none" onClose={closeDialog} __demoMode>
+          <DetailedCounty setIsDetailedCountyOpen={setIsDetailedCountyOpen} detailedCountyData={countyData} ></DetailedCounty>
         </Dialog>
       </div>
       <div className="my-anchor-element">
@@ -44,14 +55,12 @@ const MapChart = (props : MapChartProps) => {
                       geography={geo}
                       onMouseEnter={() => {
                         props.setTooltipContent(countyName);
-                        setCountyName(countyName)
+                        setCountyData({"countyName": countyName, "fips": geo.id})
                       }}
                       onMouseOut={() => {
                         props.setTooltipContent("")
                       }}
                       onClick={() => {
-                        console.log(geo)
-                        console.log(countyName)
                         setIsDetailedCountyOpen(true)
                       }}
                       style={{
