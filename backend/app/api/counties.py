@@ -30,8 +30,8 @@ def get_counties_by_state(state: str) -> Response:
     return Response(json_data, mimetype='application/json')
 
 
-@bp.route('/get_election_results_for_county/<string:county_name>', methods=['GET'])
-def get_election_results_for_county(county_name: str) -> Response:
+@bp.route('/get_election_results_for_county/<string:fips>/<string:county_name>', methods=['GET'])
+def get_election_results_for_county(county_name: str, fips:str) -> Response:
     """
     Given a county name, get the historical election data for that county
     """
@@ -43,7 +43,7 @@ def get_election_results_for_county(county_name: str) -> Response:
         county_name = capitalizeCountyName(county_name)
 
         # get the state the county belongs to
-        county_df = get_county(county_name)
+        county_df = get_county(county_name, fips)
         state = county_df[STATE].iloc[0]
         county = county_df[NAME].iloc[0]
 
