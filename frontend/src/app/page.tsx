@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { Tooltip } from 'react-tooltip'
-import MapChart from "./map/MapChart";
+import MapChart from "./components/MapChart";
 
 export default function Home() {
 
