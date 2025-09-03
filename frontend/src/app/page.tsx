@@ -1,19 +1,10 @@
-'use client';
+import ReactQueryProvider from "../components/ReactQueryProvider";
+import Home from "../components/Home";
 
-import React, { useState } from "react";
-import { Tooltip } from 'react-tooltip'
-import MapChart from "./components/MapChart";
-
-export default function Home() {
-
-  const [tooltipContent, setTooltipContent] = useState("");
-
+export default function Page() {
   return (
-    <div>
-      <Tooltip anchorSelect=".my-anchor-element" clickable float>
-        {tooltipContent}
-      </Tooltip>
-      <MapChart setTooltipContent={setTooltipContent} />
-    </div>
+    <ReactQueryProvider>
+      <Home />
+    </ReactQueryProvider>
   );
 }
