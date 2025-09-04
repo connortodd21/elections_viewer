@@ -7,8 +7,8 @@ from app.errors.error_handler import error_response
 from dataloader.counties_dataloader import get_counties_by_state as dataloader_get_counties_by_state
 from dataloader.counties_dataloader import get_county
 from dataloader.election_results_dataloader import get_statewide_election_years_for_county
-from exceptions.InputException import *
 from exceptions.DataNotGeneratedException import *
+from exceptions.InputException import *
 from formatters.json_formatter import dfToJson
 from helpers.constants import *
 from helpers.counties_helper import capitalizeCountyName
