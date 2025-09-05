@@ -9,6 +9,7 @@ from exceptions.InputException import *
 from formatters.json_formatter import dfToJson
 from formatters.state_results_formatter import format_results_for_state
 from helpers.constants import *
+from helpers.states_helper import *
 from validators.state_validator import isValidState
 
 @bp.route('/get_election_results_for_state/<string:state>', methods=['GET'])
@@ -20,6 +21,8 @@ def get_election_results_for_state(state: str) -> Response:
         # input validation 
         if not isinstance(state, str):
             raise InvalidInputError("Input must be a string")
+
+        state = convert_state_to_abbreviation(state)
 
         # input validation (ensure state is 2 letters and valid)
         if not isValidState(state):
@@ -47,6 +50,8 @@ def get_election_results_for_state_and_year(state: str, year: str) -> Response:
         # input validation 
         if not isinstance(state, str) or not isinstance(year, str):
             raise InvalidInputError("Input must be a string")
+
+        state = convert_state_to_abbreviation(state)
 
         # input validation (ensure state is 2 letters and valid)
         if not isValidState(state):

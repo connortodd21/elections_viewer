@@ -1,9 +1,4 @@
+from helpers.states_helper import *
+
 def isValidState(state: str) -> bool:
-    VALID_STATES = set([
-        "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
-        "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
-        "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ",
-        "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
-        "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"
-    ])
-    return True if state in VALID_STATES else False
+    return True if state in STATE_ABBREVIATIONS else False
