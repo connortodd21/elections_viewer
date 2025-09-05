@@ -4,9 +4,10 @@ import React, { useState, memo } from 'react';
 import { ComposableMap, Geographies, Geography, ZoomableGroup } from '@mdworld/react-simple-maps';
 import { Dialog } from '@headlessui/react';
 import { geoCentroid } from 'd3-geo';
-import DetailedCounty from '../DetailedCounty';
+import DetailedCounty from '../election/DetailedCounty';
 import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
+import DetailedState from '../election/DetailedState';
 
 const STATES_URL = 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json';
 const COUNTIES_URL = 'https://cdn.jsdelivr.net/npm/us-atlas@3/counties-10m.json';
@@ -101,47 +102,57 @@ const Map = () => {
                     Recenter
                 </button>
 
-                <ComposableMap
-                    projection="geoAlbersUsa"
-                    width={600}
-                    height={900}
-                    style={{ width: '100%', height: '100%' }}
-                    preserveAspectRatio="xMidYMid meet"
-                >
-                <ZoomableGroup key={mapKey} center={position.coordinates} zoom={position.zoom}>
-                    <Geographies geography={currentState ? COUNTIES_URL : STATES_URL}>
-                    {({ geographies }) =>
-                        geographies.map((geo) => {
-                        if (currentState && geo.id.slice(0, 2) !== currentState) return null;
-                        const name = geo.properties.name;
+                <div className="relative flex w-full h-full">
+                    <div className="flex-1 relative">
+                        <ComposableMap
+                            projection="geoAlbersUsa"
+                            width={600}
+                            height={900}
+                            style={{ width: '100%', height: '100%' }}
+                            preserveAspectRatio="xMidYMid meet"
+                        >
+                            <ZoomableGroup key={mapKey} center={position.coordinates} zoom={position.zoom}>
+                                <Geographies geography={currentState ? COUNTIES_URL : STATES_URL}>
+                                {({ geographies }) =>
+                                    geographies.map((geo) => {
+                                    if (currentState && geo.id.slice(0, 2) !== currentState) return null;
+                                    const name = geo.properties.name;
 
-                        return (
-                            <Geography
-                            key={geo.rsmKey}
-                            geography={geo}
-                            data-tooltip-id="county-tooltip"
-                            data-tooltip-content={name}
-                            onMouseEnter={() => {
-                                setTooltipContent(name);
-                                if (currentState) setCountyData({ countyName: name, fips: geo.id });
-                            }}
-                            onMouseOut={() => setTooltipContent('')}
-                            onClick={() => {
-                                if (!currentState) handleStateClick(geo);
-                                else setIsDetailedCountyOpen(true);
-                            }}
-                            style={{
-                                default: { fill: '#B0B0B0', stroke: '#888', strokeWidth: 0.5, outline: 'none' },
-                                hover: { fill: '#F53', stroke: '#666', strokeWidth: 0.7, outline: 'none' },
-                                pressed: { fill: '#E42', stroke: '#444', strokeWidth: 0.7, outline: 'none' },
-                            }}
-                            />
-                        );
-                        })
-                    }
-                    </Geographies>
-                </ZoomableGroup>
-                </ComposableMap>
+                                    return (
+                                        <Geography
+                                        key={geo.rsmKey}
+                                        geography={geo}
+                                        data-tooltip-id="county-tooltip"
+                                        data-tooltip-content={name}
+                                        onMouseEnter={() => {
+                                            setTooltipContent(name);
+                                            if (currentState) setCountyData({ countyName: name, fips: geo.id });
+                                        }}
+                                        onMouseOut={() => setTooltipContent('')}
+                                        onClick={() => {
+                                            if (!currentState) handleStateClick(geo);
+                                            else setIsDetailedCountyOpen(true);
+                                        }}
+                                        style={{
+                                            default: { fill: '#B0B0B0', stroke: '#888', strokeWidth: 0.5, outline: 'none' },
+                                            hover: { fill: '#F53', stroke: '#666', strokeWidth: 0.7, outline: 'none' },
+                                            pressed: { fill: '#E42', stroke: '#444', strokeWidth: 0.7, outline: 'none' },
+                                        }}
+                                        />
+                                    );
+                                    })
+                                }
+                                </Geographies>
+                            </ZoomableGroup>
+                        </ComposableMap>
+                    </div>
+                    {/* State overall results  */}
+                    {currentStateName && (
+                        <div className="absolute top-2 right-2">
+                            <DetailedState stateName={currentStateName} />
+                        </div>
+                    )}
+                </div>
             </div>
 
             {/* Tooltip */}
