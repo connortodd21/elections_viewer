@@ -23,6 +23,7 @@
     "react-select": "^5.10.2",
     "react-spring": "^10.0.1",
     "react-tooltip": "5.29.1",
+    "recharts": "^3.1.2",
     "topojson-client": "^3.1.0",
     "us-atlas": "^3.0.1"
   },
