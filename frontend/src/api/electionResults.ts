@@ -2,8 +2,9 @@ import axios from 'axios';
 import { useQuery } from '@tanstack/react-query'
 
 const HEADER = "http://127.0.0.1:5000/api/"
-const RESULTS_ENDPOINT = HEADER + "get_election_results_for_county/"
+const RESULTS_ENDPOINT = HEADER + "get_election_results_for_county"
 const RESULTS_FOR_YEAR_ENDPOINT = HEADER + "get_election_results_for_county_and_year"
+const SWING_COUNTIES_ENDPOINT = HEADER + "get_swing_counties"
 
 export interface CountyResult {
   year: string;
@@ -25,6 +26,16 @@ export const emptyCountyResult: CountyResult = {
   d_candidate: "",
   r_candidate: "",
 };
+
+export interface County {
+    name: string,
+    FIPS: string
+}
+
+export const emptyCounty: County = {
+    name: "",
+    FIPS: ""
+}
 
 const fetchElectionResults = async (countyName: string, fips: string): Promise<Array<CountyResult>> => {
         const response = await axios.get(`${RESULTS_ENDPOINT}/${fips}/${countyName}`)
@@ -50,4 +61,17 @@ const getCountyElectionResultsForYear = (countyName: string, fips: string, year:
     })
 }
 
-export { getCountyElectionResults, getCountyElectionResultsForYear }
+const fetchSwingCounties = async (state: string): Promise<Array<County>> => {
+        const response = await axios.get(`${SWING_COUNTIES_ENDPOINT}/${state}`)
+        return await response.data
+    }
+
+const getSwingCounties = (state?: string | null) => {
+    return useQuery({
+        queryKey: ['getSwingCounties', state],
+        queryFn: () => fetchSwingCounties(state as string),
+        enabled: !!state && false, // don't auto-run, must be refetched
+    })
+}
+
+export { getCountyElectionResults, getCountyElectionResultsForYear, getSwingCounties }

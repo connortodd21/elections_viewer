@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, memo } from 'react';
+import React, { useState, memo, useEffect } from 'react';
 import { ComposableMap, Geographies, Geography, ZoomableGroup } from '@mdworld/react-simple-maps';
 import { Dialog } from '@headlessui/react';
 import { geoCentroid } from 'd3-geo';
@@ -8,6 +8,7 @@ import DetailedCounty from '../election/DetailedCounty';
 import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
 import DetailedState from '../election/DetailedState';
+import { County, getSwingCounties } from '@/api/electionResults';
 
 const STATES_URL = 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json';
 const COUNTIES_URL = 'https://cdn.jsdelivr.net/npm/us-atlas@3/counties-10m.json';
@@ -30,6 +31,9 @@ const Map = () => {
     const [tooltipContent, setTooltipContent] = useState('');
     const [stateCentroids, setStateCentroids] = useState<Record<string, [number, number]>>({});
     const [currentStateName, setCurrentStateName] = useState<string | null>(null);
+    const [showingSwing, setShowingSwing] = useState(false);
+    const [swingCounties, setSwingCounties] = useState<County[]>([]);
+    const [loadingSwing, setLoadingSwing] = useState(false);
 
     const handleStateClick = (geo: any) => {
         const centroid = geoCentroid(geo) as [number, number];
@@ -44,6 +48,9 @@ const Map = () => {
         setPosition({ coordinates: [-97, 38], zoom: 1.5 });
         setCurrentState(null);
         setCurrentStateName(null);
+        setShowingSwing(false)
+        setSwingCounties([])
+        setLoadingSwing(false)
         setMapKey((k) => k + 1);
     };
 
@@ -60,6 +67,30 @@ const Map = () => {
         setMapKey((k) => k + 1);
     };
 
+
+    const { refetch: refetchSwing } = getSwingCounties(currentStateName ?? '')
+
+    const handleToggleSwing = async () => {
+        if (!showingSwing && currentStateName) {
+            setLoadingSwing(true);
+            setShowingSwing(true);  
+            if(swingCounties.length === 0) {
+                try {
+                    const result = await refetchSwing(); 
+                    if (result.data) {
+                        setSwingCounties(result.data);
+                    }
+                } catch (err) {
+                    console.error('Failed to fetch swing counties', err);
+                } finally {
+                    setLoadingSwing(false);
+                }
+            }
+            setLoadingSwing(false);
+        } else {
+            setShowingSwing(false);
+        }
+    };
 
     const closeDialog = () => setIsDetailedCountyOpen(false);
 
@@ -94,12 +125,23 @@ const Map = () => {
                     </button>
                 )}
 
+                {/* Swing counties button */}
+                {currentState && (
+                    <button
+                        onClick={handleToggleSwing}
+                        className="absolute top-12 left-2 z-10 rounded-lg bg-red-600 px-3 py-1 text-white font-semibold shadow hover:bg-red-700"
+                        disabled={loadingSwing}
+                    >
+                        {showingSwing ? 'Clear Map' : 'Show Swing Counties'}
+                    </button>
+                )}
+
                 {/* Always show bottom-right Recenter button */}
                 <button
                     onClick={recenter}
                     className="absolute bottom-2 right-2 z-10 rounded-lg bg-gray-700 px-3 py-1 text-white font-semibold shadow hover:bg-gray-800"
                 >
-                    Recenter
+                    Re-center
                 </button>
 
                 <div className="relative flex w-full h-full">
@@ -115,31 +157,33 @@ const Map = () => {
                                 <Geographies geography={currentState ? COUNTIES_URL : STATES_URL}>
                                 {({ geographies }) =>
                                     geographies.map((geo) => {
-                                    if (currentState && geo.id.slice(0, 2) !== currentState) return null;
-                                    const name = geo.properties.name;
+                                        if (currentState && geo.id.slice(0, 2) !== currentState) return null;
+                                        const name = geo.properties.name;
+                                        const isSwingCounty = showingSwing && swingCounties.some(c => c.FIPS === geo.id);
+                                        const fillColor = isSwingCounty ? '#FFD700' : '#B0B0B0'; // highlight swing counties in gold
 
-                                    return (
-                                        <Geography
-                                        key={geo.rsmKey}
-                                        geography={geo}
-                                        data-tooltip-id="county-tooltip"
-                                        data-tooltip-content={name}
-                                        onMouseEnter={() => {
-                                            setTooltipContent(name);
-                                            if (currentState) setCountyData({ countyName: name, fips: geo.id });
-                                        }}
-                                        onMouseOut={() => setTooltipContent('')}
-                                        onClick={() => {
-                                            if (!currentState) handleStateClick(geo);
-                                            else setIsDetailedCountyOpen(true);
-                                        }}
-                                        style={{
-                                            default: { fill: '#B0B0B0', stroke: '#888', strokeWidth: 0.5, outline: 'none' },
-                                            hover: { fill: '#F53', stroke: '#666', strokeWidth: 0.7, outline: 'none' },
-                                            pressed: { fill: '#E42', stroke: '#444', strokeWidth: 0.7, outline: 'none' },
-                                        }}
-                                        />
-                                    );
+                                        return (
+                                            <Geography
+                                                key={geo.rsmKey}
+                                                geography={geo}
+                                                data-tooltip-id="county-tooltip"
+                                                data-tooltip-content={name}
+                                                onMouseEnter={() => {
+                                                    setTooltipContent(name);
+                                                    if (currentState) setCountyData({ countyName: name, fips: geo.id });
+                                                }}
+                                                onMouseOut={() => setTooltipContent('')}
+                                                onClick={() => {
+                                                    if (!currentState) handleStateClick(geo);
+                                                    else setIsDetailedCountyOpen(true);
+                                                }}
+                                                style={{
+                                                    default: { fill: fillColor, stroke: '#888', strokeWidth: 0.5, outline: 'none' },
+                                                    hover: { fill: '#F53', stroke: '#666', strokeWidth: 0.7, outline: 'none' },
+                                                    pressed: { fill: '#E42', stroke: '#444', strokeWidth: 0.7, outline: 'none' },
+                                                }}
+                                            />
+                                        );
                                     })
                                 }
                                 </Geographies>
@@ -168,4 +212,4 @@ const Map = () => {
     );
 };
 
-export default memo(Map);
+export default Map;

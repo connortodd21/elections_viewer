@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useQuery } from '@tanstack/react-query'
 
 const HEADER = "http://127.0.0.1:5000/api/"
-const RESULTS_ENDPOINT = HEADER + "get_election_results_for_state/"
+const RESULTS_ENDPOINT = HEADER + "get_election_results_for_state"
 const RESULTS_FOR_YEAR_ENDPOINT = HEADER + "get_election_results_for_state_and_year"
 
 export interface StateResult {

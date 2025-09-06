@@ -49,10 +49,12 @@ const DetailedCountyChart = ({ results }: DetailedCountyChartProps) => {
 		return <circle key={`${payload.year}-${index}`} cx={cx} cy={cy} r={4} fill={color} stroke={color} />
 	}
 
-	// Custom tooltip formatter to match dot color
+	// Custom tooltip formatter with D+/R+ label and color
 	const tooltipFormatter = (value: number) => {
-		const color = value >= 0 ? '#1f77b4' : '#d62728'
-		return <span style={{ color, fontWeight: 'bold' }}>{value.toFixed(2)}%</span>
+		const isDem = value >= 0
+		const color = isDem ? '#1f77b4' : '#d62728'
+		const label = isDem ? `D+${value.toFixed(2)}%` : `R+${Math.abs(value).toFixed(2)}%`
+		return <span style={{ color, fontWeight: 'bold' }}>{label}</span>
 	}
 
 	return (

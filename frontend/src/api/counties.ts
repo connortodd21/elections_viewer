@@ -4,11 +4,7 @@ import { useQuery } from '@tanstack/react-query'
 const ENDPOINT = "http://127.0.0.1:5000/api/get_county_election_years"
 
 const fetchElectionYears = async (countyName: string, fips: string): Promise<Array<string>> => {
-        let params = {
-            fips: fips,
-            county: countyName
-        }
-        const response = await axios.get(`${ENDPOINT}/${fips}/${countyName}`, {params: params})
+        const response = await axios.get(`${ENDPOINT}/${fips}/${countyName}`)
         return await response.data
     }
 
