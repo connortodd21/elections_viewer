@@ -28,7 +28,7 @@ def get_statewide_election_years_for_county(county: str, state: str) -> pd.DataF
 
 def get_election_results_for_state(state: str) -> pd.DataFrame:
     try:
-        return readCsv(f"{getGitRoot()}/{RESULTS_FILE_PATH.format(state)}/statewide_results.csv")
+        return readCsv(f"{getGitRoot()}/{RESULTS_FILE_PATH.format(state)}/statewide_results.csv", converters={YEAR: str})
     except FileNotFoundError:
         raise DataNotGeneratedException(state)
 
