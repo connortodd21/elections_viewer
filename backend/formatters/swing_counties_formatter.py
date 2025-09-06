@@ -3,8 +3,12 @@ from typing import List
 import pandas as pd
 
 from helpers.constants import *
+from services.counties import get_fips_for_county
 
-def get_swing_counties(data: pd.DataFrame) -> List[str]:
+def get_swing_counties(data: pd.DataFrame, state: str) -> List[str]:
+    """
+        Given state election results and a state, get the swing counties 
+    """
     swing_counties = []
 
     # split election results by county
@@ -16,11 +20,9 @@ def get_swing_counties(data: pd.DataFrame) -> List[str]:
         tie_counties = results_for_county[results_for_county[RAW_VOTES_D] == results_for_county[RAW_VOTES_R]]
 
         # if both parties won an election in this county, it is a swing county
-        if len(d_counties) > 0 and len(r_counties) > 0:
-            swing_counties.append(county)
-
         # in the case of a tie we will consider it a swing county
-        if len(tie_counties) > 0:
-            swing_counties.append(county)
+        if (len(d_counties) > 0 and len(r_counties) > 0) or (len(tie_counties) > 0):
+            fips = get_fips_for_county(county, state)
+            swing_counties.append({COUNTY: county, FIPS: fips})
     
     return swing_counties

@@ -102,7 +102,7 @@ def get_swing_counties(state: str) -> Response:
         election_results = dataloader_get_election_results_for_state(state)
 
         # format (filter for swing counties)
-        swing_counties = formatter_get_swing_counties(election_results)
+        swing_counties = formatter_get_swing_counties(election_results, state)
         json_data = json.dumps(swing_counties)
 
         return Response(json_data, mimetype='application/json')
