@@ -129,7 +129,7 @@ const Map = () => {
                 {currentState && (
                     <button
                         onClick={handleToggleSwing}
-                        className="absolute top-12 left-2 z-10 rounded-lg bg-red-600 px-3 py-1 text-white font-semibold shadow hover:bg-red-700"
+                        className="absolute top-12 left-2 z-10 rounded-lg bg-[#6A0DAD] px-3 py-1 text-white font-semibold shadow hover:bg-[#7B1FA2]"
                         disabled={loadingSwing}
                     >
                         {showingSwing ? 'Clear Map' : 'Show Swing Counties'}
@@ -160,7 +160,6 @@ const Map = () => {
                                         if (currentState && geo.id.slice(0, 2) !== currentState) return null;
                                         const name = geo.properties.name;
                                         const isSwingCounty = showingSwing && swingCounties.some(c => c.FIPS === geo.id);
-                                        const fillColor = isSwingCounty ? '#FFD700' : '#B0B0B0'; // highlight swing counties in gold
 
                                         return (
                                             <Geography
@@ -178,7 +177,7 @@ const Map = () => {
                                                     else setIsDetailedCountyOpen(true);
                                                 }}
                                                 style={{
-                                                    default: { fill: fillColor, stroke: '#888', strokeWidth: 0.5, outline: 'none' },
+                                                    default: { fill: isSwingCounty ? '#9370DB' : '#B0B0B0', stroke: '#888', strokeWidth: 0.5, outline: 'none' },
                                                     hover: { fill: '#F53', stroke: '#666', strokeWidth: 0.7, outline: 'none' },
                                                     pressed: { fill: '#E42', stroke: '#444', strokeWidth: 0.7, outline: 'none' },
                                                 }}
