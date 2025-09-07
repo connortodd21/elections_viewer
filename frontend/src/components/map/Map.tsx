@@ -177,7 +177,7 @@ const Map = () => {
                                                     else setIsDetailedCountyOpen(true);
                                                 }}
                                                 style={{
-                                                    default: { fill: isSwingCounty ? '#9370DB' : '#B0B0B0', stroke: '#888', strokeWidth: 0.5, outline: 'none' },
+                                                    default: { fill: isSwingCounty ? '#9370DB' : '#B0B0B0', stroke: '#555555', strokeWidth: 0.5, outline: 'none' },
                                                     hover: { fill: '#F53', stroke: '#666', strokeWidth: 0.7, outline: 'none' },
                                                     pressed: { fill: '#E42', stroke: '#444', strokeWidth: 0.7, outline: 'none' },
                                                 }}
