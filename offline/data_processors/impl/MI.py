@@ -112,7 +112,7 @@ class MIStateWideElectionDataProcessor(DataProcessor):
     def dropData(self, data: pd.DataFrame) -> pd.DataFrame:
         return data.drop(['DistrictCode(Text)', 'StatusCode', 'CountyCode', 'PartyOrder', 'CandidateFirstName', 'CandidateLastName', 'CandidateMiddleName', 'CandidateID', 'CandidateFormerName', 'WriteIn(W)/Uncommitted(Z)', 'Recount(*)'], axis=1)
 
-    def generateCountyByCountyResults(self, data: pd.DataFrame) -> pd.DataFrame:
+    def processData(self, data: pd.DataFrame) -> pd.DataFrame:
         county_by_county_results = pd.DataFrame(columns=[self.YEAR, self.ELECTION, self.COUNTY, self.RAW_VOTES_D, self.RAW_VOTES_R, self.D_CANDIDATE, self.R_CANDIDATE])
         counties = data[self.COUNTY_NAME].unique()
         for county in counties:

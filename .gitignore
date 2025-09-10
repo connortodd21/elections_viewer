@@ -6,10 +6,11 @@
 **venv**
 
 ################################################
-### Offline files to ignore
+### Database files to ignore
 ################################################
 database/**/raw/*
 database/**/processed/*
+database/demographics/co-est**
 
 ################################################
 ### Frontend files to ignore

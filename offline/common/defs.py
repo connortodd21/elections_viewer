@@ -4,6 +4,7 @@ RAW_DATA_FILE_PATH = "database/{}/raw"
 RESULTS_FILE_PATH = "database/{}/results"
 COUNTIES_FILE_PATH = "database/{}/counties"
 ALL_COUNTIES_FILE_PATH = "database/counties"
+DEMOGRAPHICS_FILE_PATH = "database/demographics"
 
 # years since trump entered politics
 ELECTION_YEARS_AFTER_TRUMP = [2016, 2018, 2020, 2022, 2024]
@@ -17,6 +18,9 @@ GOVERNOR = "governor"
 NAME = "Name"
 STATE = "State"
 FIPS = "FIPS"
+
+# Demographics constants
+AGE_SEX_RACE = "AgeSexRace"
 
 # Individual va
 AL = "AL"

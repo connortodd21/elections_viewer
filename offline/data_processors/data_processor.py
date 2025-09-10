@@ -60,9 +60,11 @@ class DataProcessor(ABC):
         pass
 
     @abstractmethod
-    def generateCountyByCountyResults(self, data: pd.DataFrame) -> pd.DataFrame:
+    def processData(self, data: pd.DataFrame) -> pd.DataFrame:
         """
-        Generate election results for each county
+        Process data. Any custom operations and logic should go here
+
+        Return dataframe after processing
         """
         pass
 
