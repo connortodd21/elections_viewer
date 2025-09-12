@@ -1,5 +1,5 @@
 from common.defs import *
-from data_processors.impl.AgeSexRace import AgeSexRaceDataProcessor
+from data_processors.impl.PopulationTrendsByCounty import PopulationTrendsByCountyDataProcessor
 from data_processors.impl.CA import CAStateWideElectionDataProcessor
 from data_processors.impl.MI import MIStateWideElectionDataProcessor
 
@@ -12,5 +12,5 @@ STATES_TO_DATA_PROCESSOR = {
 }
 
 DEMOGRAPHICS_DATA_PROCESSOR = {
-    AGE_SEX_RACE: AgeSexRaceDataProcessor
+    POPULATION_TRENDS_BY_COUNTY: PopulationTrendsByCountyDataProcessor
 }

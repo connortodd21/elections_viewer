@@ -20,7 +20,7 @@ def getWriteIntermediateResultsInput() -> bool:
     while True:
         ans = input("Do you want to write intermediate results? (y/n): ")
         if len(ans) == 1 and ans in valid_answers:
-            return True if ans == 't' else False
+            return True if ans == 'y' else False
         else:
             print("\nPlease input a valid response (either 'y' or 'n')\n")
         if attempts > 5:

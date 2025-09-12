@@ -1,5 +1,5 @@
 from common.input_helpers import getStateInput, getWriteIntermediateResultsInput
-from data_processors.state_to_data_processor import STATES_TO_DATA_PROCESSOR
+from data_processors.data_processor_factory import STATES_TO_DATA_PROCESSOR
 
 state = getStateInput()
 writeIntermediateResults = getWriteIntermediateResultsInput()
@@ -8,10 +8,10 @@ data_processor = STATES_TO_DATA_PROCESSOR[state]()
 
 # get raw data
 data = data_processor.getRawData()
-# cleanup data
-data = data_processor.cleanData(data)
 # filter unused rows
 data = data_processor.filterData(data)
+# cleanup data
+data = data_processor.cleanData(data)
 # drop unused columns
 data = data_processor.dropData(data)
 # write intermediate results if desired

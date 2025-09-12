@@ -10,7 +10,8 @@
 ################################################
 database/**/raw/*
 database/**/processed/*
-database/demographics/co-est**
+database/demographics/raw/*
+database/demographics/intermediate/*
 
 ################################################
 ### Frontend files to ignore
