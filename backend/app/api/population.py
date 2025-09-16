@@ -1,5 +1,3 @@
-import json
-
 from flask import Response
 
 from app.api import bp
