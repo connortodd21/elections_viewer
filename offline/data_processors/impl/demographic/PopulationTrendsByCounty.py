@@ -78,7 +78,7 @@ class PopulationTrendsByCountyDataProcessor(DataProcessor):
 
         # these columns are unnecessary
         def drop_unnecessary_descriptors(data: pd.DataFrame) -> pd.DataFrame:
-            drop_columns = [STATE_RAW, COUNTY_RAW, SUMLEV_RAW, "REGION", "DIVISION", ]
+            drop_columns = [STATE_RAW, COUNTY_RAW, SUMLEV_RAW, "REGION", "DIVISION", "STNAME", "CTYNAME"]
             return data.drop(drop_columns, axis=1)
 
         # we dont need columns which measure rates or group data
