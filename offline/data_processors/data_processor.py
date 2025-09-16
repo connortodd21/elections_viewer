@@ -93,7 +93,7 @@ class DataProcessor(ABC):
         republican_candidate_name: str
     ) -> pd.DataFrame:
         """
-        Create the county level dataframe during generateCountyByCountyResults
+        Create dataframe row for county level results 
         """
         return pd.DataFrame({
             self.YEAR: [year],

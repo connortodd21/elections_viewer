@@ -1,18 +1,17 @@
 from common.defs import *
-from common.input_helpers import getWriteIntermediateResultsInput, getStateInput
+from common.input_helpers import getWriteIntermediateResultsInput
 from data_processors.data_processor_factory import DEMOGRAPHICS_DATA_PROCESSOR
 
-state = getStateInput()
 writeIntermediateResults = getWriteIntermediateResultsInput()
 
-data_processor = DEMOGRAPHICS_DATA_PROCESSOR[DEMOGRAPHIC_TRENDS_BY_COUNTY](state)
+data_processor = DEMOGRAPHICS_DATA_PROCESSOR[POPULATION_TRENDS_BY_COUNTY]()
 
 # get raw data
 data = data_processor.getRawData()
-# cleanup data
-data = data_processor.cleanData(data)
 # filter unused rows
 data = data_processor.filterData(data)
+# cleanup data
+data = data_processor.cleanData(data)
 # drop unused columns
 data = data_processor.dropData(data)
 # write intermediate results if desired

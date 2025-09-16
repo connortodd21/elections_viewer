@@ -5,8 +5,8 @@ from common.csv_helpers import readCsv, writeDataFrameToCSV
 from data_processors.data_processor import DataProcessor
 
 # Raw data file paths
-DEMOGRAPHICS_2010_TO_2020_FILE_NAME = "co-est2020-alldata"
-DEMOGRAPHICS_2021_TO_2024_FILE_NAME = "co-est2024-alldata"
+POPULATION_TRENDS_2010_TO_2020_FILE_NAME = "co-est2020-alldata"
+POPULATION_TRENDS_2020_TO_2024_FILE_NAME = "co-est2024-alldata"
 
 # Raw data column names without years
 STATE_RAW = "STATE"
@@ -30,8 +30,8 @@ class PopulationTrendsByCountyDataProcessor(DataProcessor):
         # census data is divided into pre 2010-2020 and 2020-2024 datasets. need to read from both and concat
         encoding = "latin1" # needed to avoid encoding error when reading csv
         converters = {STATE_RAW: str, COUNTY_RAW: str}
-        census_2010_to_2020_data = readCsv(f"{self.GIT_ROOT}/{DEMOGRAPHICS_RAW_FILE_PATH}/{DEMOGRAPHICS_2010_TO_2020_FILE_NAME}.csv",encoding=encoding,converters=converters)
-        census_2020_to_2024_data = readCsv(f"{self.GIT_ROOT}/{DEMOGRAPHICS_RAW_FILE_PATH}/{DEMOGRAPHICS_2021_TO_2024_FILE_NAME}.csv",encoding=encoding,converters=converters)
+        census_2010_to_2020_data = readCsv(f"{self.GIT_ROOT}/{DEMOGRAPHICS_RAW_FILE_PATH}/{POPULATION_TRENDS_2010_TO_2020_FILE_NAME}.csv",encoding=encoding,converters=converters)
+        census_2020_to_2024_data = readCsv(f"{self.GIT_ROOT}/{DEMOGRAPHICS_RAW_FILE_PATH}/{POPULATION_TRENDS_2020_TO_2024_FILE_NAME}.csv",encoding=encoding,converters=converters)
         data = pd.merge(census_2010_to_2020_data, census_2020_to_2024_data, on=["SUMLEV","REGION","DIVISION","STATE","COUNTY","STNAME","CTYNAME"], how='inner')
         return data
 
@@ -43,8 +43,9 @@ class PopulationTrendsByCountyDataProcessor(DataProcessor):
         return data.pipe(filter_for_only_county_level)
     
     def cleanData(self, data: pd.DataFrame) -> pd.DataFrame:
-        # merge separate fips into singular fips and move to left of dataframe
-        def generate_fips(data: pd.DataFrame) -> pd.DataFrame:
+
+        # combine state + county fips into one code
+        def combine_fips(data: pd.DataFrame) -> pd.DataFrame:
             data[FIPS] = data[STATE_RAW].str.pad(width=2, side='left', fillchar='0') + data[COUNTY_RAW].str.pad(width=3, side='left', fillchar='0')
             column_to_move = data.pop(FIPS)
             data.insert(0, FIPS, column_to_move) # Insert it at index 0
@@ -61,7 +62,7 @@ class PopulationTrendsByCountyDataProcessor(DataProcessor):
                     renamed_columns[column] = column.split('_')[0]
             return data.rename(columns=renamed_columns)
         
-        return data.pipe(generate_fips).pipe(remove_y)
+        return data.pipe(combine_fips).pipe(remove_y)
 
     def dropData(self, data: pd.DataFrame) -> pd.DataFrame:
         # drop columns with demographic data before 2016
@@ -124,4 +125,4 @@ class PopulationTrendsByCountyDataProcessor(DataProcessor):
         return data
 
     def writeDataToResults(self, data: pd.DataFrame) -> None:
-        writeDataFrameToCSV(f"{self.GIT_ROOT}/{DEMOGRAPHICS_RESULTS_FILE_PATH}/population_trends.csv", data)
+        writeDataFrameToCSV(f"{self.GIT_ROOT}/{DEMOGRAPHICS_RESULTS_FILE_PATH}/population_trends_by_county.csv", data)
