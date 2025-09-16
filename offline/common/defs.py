@@ -34,7 +34,7 @@ R_CANDIDATE = "r_candidate"
 POPULATION_TRENDS_BY_COUNTY = "PopulationTrendsByCounty"
 DEMOGRAPHIC_TRENDS_BY_COUNTY = "DemographicTrendsByCounty"
 
-# Individual va
+# Individual state abbreviations
 AL = "AL"
 AK = "AK"
 AZ = "AZ"
