@@ -1,5 +1,5 @@
 from common.defs import *
-from data_processors.impl.demographic.DemographicTrendsByCounty import DemographicTrendsByCounty
+from data_processors.impl.demographic.DemographicTrendsByCountyForState import DemographicTrendsByCounty
 from data_processors.impl.demographic.PopulationTrendsByCounty import PopulationTrendsByCountyDataProcessor
 from data_processors.impl.state.CA import CAStateWideElectionDataProcessor
 from data_processors.impl.state.MI import MIStateWideElectionDataProcessor

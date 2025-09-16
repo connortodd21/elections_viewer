@@ -194,7 +194,7 @@ class DemographicTrendsByCounty(DataProcessor):
         return data
 
     def writeDataToResults(self, data: pd.DataFrame) -> None:
-        writeDataFrameToCSV(f"{self.GIT_ROOT}/{DEMOGRAPHICS_RESULTS_FILE_PATH}/demographic_trends_by_county.csv", data)
+        writeDataFrameToCSV(f"{self.GIT_ROOT}/{DEMOGRAPHICS_RESULTS_FILE_PATH}/{self.state}/demographic_trends_by_county.csv", data)
 
     ################################################################################
     #### Custom functions for this class
