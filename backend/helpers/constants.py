@@ -8,6 +8,12 @@ DEMOGRAPHICS_RESULTS_FILE_PATH = "database/demographics/results"
 NAME = "Name"
 STATE = "State"
 FIPS = "FIPS"
+FIPS_LOWER = "fips"
+
+# age-related keys
+AGEGRP = "AGEGRP"
+TOT_POP = "TOT_POP"
+YEAR_UPPER = "YEAR"
 
 # statewide_results column names
 YEAR = "year"

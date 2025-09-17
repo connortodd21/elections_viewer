@@ -5,7 +5,7 @@ from helpers.constants import *
 
 def format_county_results_into_state(data: pd.DataFrame) -> pd.DataFrame:
     """
-    Given a dataframe of county-level results for a state, return the 
+    Given a dataframe of county-level demographics for a state, return the 
     summed values for each row
     """
     state_fips_codes = data[FIPS].str[:2].unique()

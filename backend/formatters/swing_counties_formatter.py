@@ -23,6 +23,6 @@ def get_swing_counties(data: pd.DataFrame, state: str) -> List[str]:
         # in the case of a tie we will consider it a swing county
         if (len(d_counties) > 0 and len(r_counties) > 0) or (len(tie_counties) > 0):
             fips = get_fips_for_county(county, state)
-            swing_counties.append({COUNTY: county, FIPS: fips})
+            swing_counties.append({COUNTY: county, FIPS_LOWER: fips})
     
     return swing_counties
