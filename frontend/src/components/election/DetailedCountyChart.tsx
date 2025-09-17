@@ -12,7 +12,7 @@ import {
 	YAxis,
 } from 'recharts'
 
-import { CountyResult } from '@/api/counties'
+import { CountyResult } from "@/interfaces/county"
 
 const RACE_TYPES = ['President', 'Senate', 'Governor']
 

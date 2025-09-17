@@ -1,7 +1,8 @@
 'use client'
 
 import { memo } from 'react'
-import { getStateElectionResults, StateResult } from '@/api/states'
+import { getStateElectionResults } from '@/api/states'
+import { StateResult } from '@/interfaces/state'
 
 interface DetailedStateProps {
   stateName: string
