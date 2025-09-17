@@ -1,7 +1,7 @@
 'use client'
 
 import { memo } from 'react'
-import { CountyResult } from '@/api/electionResults'
+import { CountyResult } from '@/api/counties'
 
 interface DetailedElectionResultProps {
   result: CountyResult

@@ -8,7 +8,8 @@ import DetailedCounty from '../election/DetailedCounty';
 import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
 import DetailedState from '../election/DetailedState';
-import { County, getSwingCounties } from '@/api/electionResults';
+import { getSwingCounties } from '@/api/counties';
+import { County } from '@/interfaces/county';
 
 const STATES_URL = 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json';
 const COUNTIES_URL = 'https://cdn.jsdelivr.net/npm/us-atlas@3/counties-10m.json';

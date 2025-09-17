@@ -1,0 +1,70 @@
+export interface DemographicData {
+    FIPS: string;
+    YEAR: number;
+    AGEGRP: string;
+
+    TOT_POP: number;
+    TOT_MALE: number;
+    TOT_FEMALE: number;
+
+    WHITE_MALE: number;
+    WHITE_FEMALE: number;
+    BLACK_MALE: number;
+    BLACK_FEMALE: number;
+    INDIAN_MALE: number;
+    INDIAN_FEMALE: number;
+    ASIAN_MALE: number;
+    ASIAN_FEMALE: number;
+    NATIVE_MALE: number;
+    NATIVE_FEMALE: number;
+    TWO_OR_MORE_MALE: number;
+    TWO_OR_MORE_FEMALE: number;
+    WHITE_COMBINATION_MALE: number;
+    WHITE_COMBINATION_FEMALE: number;
+    BLACK_COMBINATION_MALE: number;
+    BLACK_COMBINATION_FEMALE: number;
+    INDIAN_COMBINATION_MALE: number;
+    INDIAN_COMBINATION_FEMALE: number;
+    ASIAN_COMBINATION_MALE: number;
+    ASIAN_COMBINATION_FEMALE: number;
+    NATIVE_COMBINATION_MALE: number;
+    NATIVE_COMBINATION_FEMALE: number;
+    HISPANIC_MALE: number;
+    HISPANIC_FEMALE: number;
+}
+
+
+export const emptyCountyDemographicsData: DemographicData = {
+    FIPS: "",
+    YEAR: 0,
+    AGEGRP: "",
+
+    TOT_POP: 0,
+    TOT_MALE: 0,
+    TOT_FEMALE: 0,
+
+    WHITE_MALE: 0,
+    WHITE_FEMALE: 0,
+    BLACK_MALE: 0,
+    BLACK_FEMALE: 0,
+    INDIAN_MALE: 0,
+    INDIAN_FEMALE: 0,
+    ASIAN_MALE: 0,
+    ASIAN_FEMALE: 0,
+    NATIVE_MALE: 0,
+    NATIVE_FEMALE: 0,
+    TWO_OR_MORE_MALE: 0,
+    TWO_OR_MORE_FEMALE: 0,
+    WHITE_COMBINATION_MALE: 0,
+    WHITE_COMBINATION_FEMALE: 0,
+    BLACK_COMBINATION_MALE: 0,
+    BLACK_COMBINATION_FEMALE: 0,
+    INDIAN_COMBINATION_MALE: 0,
+    INDIAN_COMBINATION_FEMALE: 0,
+    ASIAN_COMBINATION_MALE: 0,
+    ASIAN_COMBINATION_FEMALE: 0,
+    NATIVE_COMBINATION_MALE: 0,
+    NATIVE_COMBINATION_FEMALE: 0,
+    HISPANIC_MALE: 0,
+    HISPANIC_FEMALE: 0,
+};

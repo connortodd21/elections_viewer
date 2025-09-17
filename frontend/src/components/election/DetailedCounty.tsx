@@ -5,9 +5,9 @@ import { useState, memo, useEffect } from 'react';
 
 import { CountyData } from '../map/Map';
 import DetailedElectionResult from './DetailedElectionResult';
-import { getCountyElectionResults } from '@/api/electionResults';
-import { CountyResult } from '@/api/electionResults';
+import { getCountyElectionResults } from '@/api/counties';
 import DetailedCountyChart from './DetailedCountyChart';
+import { CountyResult } from '@/interfaces/county';
 
 interface DetailedCountyProps {
 	closeDialog: () => void;
