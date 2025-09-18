@@ -21,10 +21,10 @@ export const emptyCountyResult: CountyResult = {
 
 export interface County {
     name: string,
-    FIPS: string
+    fips: string
 }
 
 export const emptyCounty: County = {
     name: "",
-    FIPS: ""
+    fips: ""
 }

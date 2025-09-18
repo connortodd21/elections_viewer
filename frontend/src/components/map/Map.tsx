@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, memo, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ComposableMap, Geographies, Geography, ZoomableGroup } from '@mdworld/react-simple-maps';
 import { Dialog } from '@headlessui/react';
 import { geoCentroid } from 'd3-geo';
@@ -14,11 +14,6 @@ import { County } from '@/interfaces/county';
 const STATES_URL = 'https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json';
 const COUNTIES_URL = 'https://cdn.jsdelivr.net/npm/us-atlas@3/counties-10m.json';
 
-export interface CountyData {
-  countyName: string;
-  fips: string;
-}
-
 const Map = () => {
 
     const [currentState, setCurrentState] = useState<string | null>(null);
@@ -28,7 +23,7 @@ const Map = () => {
     });
     const [mapKey, setMapKey] = useState(0); // force re-render for reset
     const [isDetailedCountyOpen, setIsDetailedCountyOpen] = useState(false);
-    const [countyData, setCountyData] = useState<CountyData>({ countyName: '', fips: '' });
+    const [countyData, setCountyData] = useState<County>({ name: '', fips: '' });
     const [tooltipContent, setTooltipContent] = useState('');
     const [stateCentroids, setStateCentroids] = useState<Record<string, [number, number]>>({});
     const [currentStateName, setCurrentStateName] = useState<string | null>(null);
@@ -160,7 +155,7 @@ const Map = () => {
                                     geographies.map((geo) => {
                                         if (currentState && geo.id.slice(0, 2) !== currentState) return null;
                                         const name = geo.properties.name;
-                                        const isSwingCounty = showingSwing && swingCounties.some(c => c.FIPS === geo.id);
+                                        const isSwingCounty = showingSwing && swingCounties.some(c => c.fips === geo.id);
 
                                         return (
                                             <Geography
@@ -170,7 +165,7 @@ const Map = () => {
                                                 data-tooltip-content={name}
                                                 onMouseEnter={() => {
                                                     setTooltipContent(name);
-                                                    if (currentState) setCountyData({ countyName: name, fips: geo.id });
+                                                    if (currentState) setCountyData({ name: name, fips: geo.id });
                                                 }}
                                                 onMouseOut={() => setTooltipContent('')}
                                                 onClick={() => {

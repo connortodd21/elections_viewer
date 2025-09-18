@@ -3,28 +3,24 @@
 import { DialogPanel, DialogBackdrop } from '@headlessui/react';
 import { useState, memo, useEffect } from 'react';
 
-import { CountyData } from '../map/Map';
 import DetailedElectionResult from './DetailedElectionResult';
 import { getCountyElectionResults } from '@/api/counties';
 import DetailedCountyChart from './DetailedCountyChart';
-import { CountyResult } from '@/interfaces/county';
+import { CountyResult, County } from '@/interfaces/county';
+import CountyDemographicDetail from '../demographic/CountyDemographicDetail';
 
 interface DetailedCountyProps {
 	closeDialog: () => void;
-	detailedCountyData: CountyData;
+	detailedCountyData: County;
 }
 
-interface SelectOptionType {
-	value: string;
-	label: string;
-}
 
 const DetailedCounty = (props: DetailedCountyProps) => {
 	const [results, setResults] = useState<CountyResult[]>([]);
 
 	// Fetch election results for selected year
 	const { data: resultsData, isPending: resultsPending } = getCountyElectionResults(
-		props.detailedCountyData.countyName,
+		props.detailedCountyData.name,
 		props.detailedCountyData.fips,
 	);
 
@@ -45,18 +41,15 @@ const DetailedCounty = (props: DetailedCountyProps) => {
 						autoFocus
 						className="w-full max-w-7xl h-full bg-white/90 rounded-none shadow-xl ring-1 ring-white/20 backdrop-blur-2xl overflow-y-auto p-6 flex flex-col"
 					>
-						{/* Close button */}
-						<button
-							type="button"
-							onClick={props.closeDialog}
-							className="absolute top-3 right-3 text-gray-600 hover:text-gray-900 text-xl font-bold"
-							aria-label="Close"
-						>
-							X
-						</button>
+						
+						{/* Demographic and Population Detail */}
+						<div>
+							<CountyDemographicDetail detailedCountyData={props.detailedCountyData}></CountyDemographicDetail>
+						</div>
+
 						{/* Header */}
 						<h2 className="text-2xl font-bold text-purple-600 mb-6">
-								{props.detailedCountyData.countyName} County Results
+								{props.detailedCountyData.name} County Results
 						</h2>
 
 						{/* Horizontal scroll of election results */}
@@ -74,6 +67,7 @@ const DetailedCounty = (props: DetailedCountyProps) => {
 								<DetailedCountyChart results={results} />
 						</div>
 
+						{/* Close button */}
 						<button
 								type="button"
 								className="rounded-lg bg-red-600 px-4 py-2 font-bold text-white shadow hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400"
