@@ -24,7 +24,7 @@ def format_demographic_results_into_age_results_for_county(data: pd.DataFrame) -
 
 def format_demographic_results_into_age_results_for_state(data: pd.DataFrame) -> pd.DataFrame:
     """
-    Given a dataframe of demographic data, return a new dataframe with age groups as columns the state
+    Given a dataframe of demographic data, return a new dataframe with age groups as columns for the state
     All rows must have FIPS codes for the same state
     """
     state_fips_codes = data[FIPS].str[:2].unique()

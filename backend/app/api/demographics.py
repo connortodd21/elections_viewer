@@ -12,6 +12,7 @@ from formatters.age_formatter import format_demographic_results_into_age_results
 from formatters.demographics_formatter import format_county_results_into_state
 from formatters.json_formatter import dfToJson
 from helpers.constants import *
+from helpers.states_helper import convert_state_to_abbreviation
 from validators.state_validator import isValidState
 
 
@@ -50,6 +51,7 @@ def get_demographic_trends_for_state(state: str) -> Response:
         if not isinstance(state, str):
             raise InvalidInputError("Input must be a string")
 
+        state = convert_state_to_abbreviation(state)
         # input validation (ensure state is 2 letters and valid)
         if not isValidState(state):
             raise InvalidInputError("Please input a valid state")
@@ -106,6 +108,7 @@ def get_age_trends_for_state(state: str) -> Response:
         if not isinstance(state, str):
             raise InvalidInputError("Input must be a string")
 
+        state = convert_state_to_abbreviation(state)
         # input validation (ensure state is 2 letters and valid)
         if not isValidState(state):
             raise InvalidInputError("Please input a valid state")

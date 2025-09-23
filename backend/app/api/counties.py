@@ -39,7 +39,6 @@ def get_county_statewide_election_years(county_name: str, fips: str) -> Response
     try:
         # input validation 
         if not isinstance(county_name, str) or not isinstance(fips, str):
-            print(county_name, fips, type(fips))
             raise InvalidInputError("Inputs must be strings")
 
         county_name = capitalizeCountyName(county_name)
