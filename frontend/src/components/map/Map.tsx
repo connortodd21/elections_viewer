@@ -63,7 +63,6 @@ const Map = () => {
         setMapKey((k) => k + 1);
     };
 
-
     const { refetch: refetchSwing } = getSwingCounties(currentStateName ?? '')
 
     const handleToggleSwing = async () => {
@@ -88,15 +87,16 @@ const Map = () => {
         }
     };
 
-    const closeDialog = () => setIsDetailedCountyOpen(false);
+    // Close dialogs
+    const closeCountyDialog = () => setIsDetailedCountyOpen(false);
 
     return (
         <>
             {/* Detailed County Dialog */}
-            <Dialog open={isDetailedCountyOpen} onClose={closeDialog} className="relative z-10">
+            <Dialog open={isDetailedCountyOpen} onClose={closeCountyDialog} className="relative z-10">
                 <div className="fixed inset-0 bg-black/30" />
                 <div className="fixed inset-0 flex items-center justify-center p-4">
-                    <DetailedCounty closeDialog={closeDialog} detailedCountyData={countyData} />
+                    <DetailedCounty closeDialog={closeCountyDialog} detailedCountyData={countyData} />
                 </div>
             </Dialog>
 
@@ -185,6 +185,7 @@ const Map = () => {
                             </ZoomableGroup>
                         </ComposableMap>
                     </div>
+
                     {/* State overall results  */}
                     {currentStateName && (
                         <div className="absolute top-2 right-2">
