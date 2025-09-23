@@ -1,15 +1,15 @@
 'use client';
 
-import { useState, memo, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { County } from '@/interfaces/county';
 import { getCountyAgeGroupTrendData, getCountyDemographicTrendData } from '@/api/demographics';
 import { getCountyPopulationTrendData } from '@/api/population';
 import { DemographicData } from '@/interfaces/demographic';
 import { PopulationData } from '@/interfaces/population';
-import PopulationCountyChart from './PopulationCountyChart';
-import DemographicCountyChart from './DemographicCountyChart';
+import PopulationCountyChart from './PopulationChart';
+import DemographicCountyChart from './DemographicChart';
 import { AgeGroupData } from '@/interfaces/age';
-import AgeGroupsCountyChart from './AgeGroupCountyChart';
+import AgeGroupsCountyChart from './AgeGroupChart';
 
 interface CountyDemographicDetailProps {
     detailedCountyData: County;
@@ -69,4 +69,4 @@ const CountyDemographicDetail = (props: CountyDemographicDetailProps) => {
     )
 }
 
-export default memo(CountyDemographicDetail);
+export default CountyDemographicDetail;
